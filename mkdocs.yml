@@ -1,6 +1,0 @@
-site_name: KurtRhee
-theme: 
-name: null
-custom_dir: 'cinder'
-nav:
-- Home: index.md
