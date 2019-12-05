@@ -11,7 +11,7 @@
     <link rel="../img/favicon.ico">
 
     
-    <title>Kurt Rhee (Simon Kurtis Rhee II) - KurtRhee</title>
+    <title>Kolmogorov Smirnoff Index Long Term Correlation - KurtRhee</title>
     
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -99,41 +99,43 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</a></li>
-            <li class="second-level"><a href="#introduction">Introduction</a></li>
+        <li class="first-level active"><a href="#kolmogorov-smirnoff-index-long-term-correlation">Kolmogorov Smirnoff Index Long Term Correlation</a></li>
+            <li class="second-level"><a href="#correction-of-long-term-satellite-resource-data-series-to-measured-ground-data-via-ksi-fit-methodology">Correction of Long Term Satellite Resource Data Series to Measured Ground Data via KSI fit Methodology</a></li>
                 
-            <li class="second-level"><a href="#methods">Methods</a></li>
-                
-            <li class="second-level"><a href="#results">Results</a></li>
-                
+                <li class="third-level"><a href="#introduction">Introduction</a></li>
+                <li class="third-level"><a href="#methods">Methods</a></li>
+                <li class="third-level"><a href="#results">Results</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</h1>
+<h1 id="kolmogorov-smirnoff-index-long-term-correlation">Kolmogorov Smirnoff Index Long Term Correlation</h1>
+<h2 id="correction-of-long-term-satellite-resource-data-series-to-measured-ground-data-via-ksi-fit-methodology">Correction of Long Term Satellite Resource Data Series to Measured Ground Data via KSI fit Methodology</h2>
+<h4 id="introduction">Introduction</h4>
+<p>Due to inherent biases related to modeling solar resource by satellite and determining the components of irradiance via satellite models, it is sometimes necessary to attempt to correct the satellite resource dataset to better represent the true irradiance at a given project site.  In this case, true is represented by high quality measured irradiance.  The goal is to create a dataset with the long history of the satellite model, but the accuracy of the shorter term measured data.  </p>
+<p>There are multiple methods to correct for satellite bias, the standard method being linear fit.  In this method, an analyst creates a linear regression of the satellite and measured datasets and applies the linear correction factor to the satellite dataset.  This correction is then either used to initialize PVSysts/Meteonorm's markov chain synthetic generation process, or a separation model is applied to the correct global horizontal irradiance dataset.  There are resulting artifacts of using either of these methods which result in poor fit to measured data.  The markov chain method seriously degrades the accuracy of irradiance components by time of day and modeling the diffuse on linearly corrected global horizontal irradiance degrades the clearness index calculation.</p>
+<h4 id="methods">Methods</h4>
+<p> ![KSI Correction](proj_images/ksiltc_correction.png) </p>
+
+<p> Figure 1:  Correction applied to Long Term Dataset</p>
+
+<p>In an attempt to improve the performance of the long term correlation and account for non-linear artifacts of the satellite model, I attempted to use the Kolmogorov-Smirnoff Index instead of the linear correction factor.  The program as written finds the concurrent period between the satellite global horizontal irradiance data series and the corresponding pyranometer (sensor) data series.  The satellite data is then sorted into a cumulative distribution function and labeled by index.  The same is done for the pyrnaometer data series.  Next, the algorithm exands its scope to the full timeseries dataset and applies a correction by replacing values in the satellite data series from the pyranometer data series by index.  Once this is completed one can apply a separation model to attain the desired irradiance components.</p>
+<h4 id="results">Results</h4>
+<p>Although the KSI method reduces the mean bias error as well as the root mean square error of the resulting global horizontal data series, the resulting irradiance components as attained by the separation model does not show a significant improvement over the original satellite dataset.  It was found that using relative humidity and pressure data from the satellite file seriously degrades the performance of the separation model, calling into question the accuracy of those datasets.  Using only the minimum inputs to the separation model gives an improved mean bias error of the diffuse component of irradiance, but slightly degrades the root mean square error.  This may be due to the fact that the satellite datasource uses the DirIndex separation model, where we used the less sophisticated DirInt model due to lack of reliable inputs.  Overall, this alternative methodology for long term correlations is without question an improvement on the linear fit method, but not a panacea for all of the questions that may arise when attempting to statistically correlate satellite datasets with sensor based ones.</p>
 <table>
 <thead>
 <tr>
 <th>Images</th>
 <th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><p> <img alt="KSI Correction" src="../proj_images/ksiltc_correction.png" /> </p><p> Correction applied to Long Term Dataset</p></td>
 <td><p> <img alt="KSI R2" src="../proj_images/ksiltc_r2.png" /> </p><p> R2 of Resulting Data</p></td>
 <td><p> <img alt="KSI R2" src="../proj_images/ksiltc_k.png" /> </p><p> Error of Diffuse Model by Clearness Index</p></td>
 </tr>
 </tbody>
-</table>
-<h2 id="introduction">Introduction</h2>
-<p>Due to inherent biases related to modeling solar resource by satellite and determining the components of irradiance via satellite models, it is sometimes necessary to attempt to correct the satellite resource dataset to better represent the true irradiance at a given project site.  In this case, true is represented by high quality measured irradiance.  The goal is to create a dataset with the long history of the satellite model, but the accuracy of the shorter term measured data.  </p>
-<p>There are multiple methods to correct for satellite bias, the standard method being linear fit.  In this method, an analyst creates a linear regression of the satellite and measured datasets and applies the linear correction factor to the satellite dataset.  This correction is then either used to initialize PVSysts/Meteonorm's markov chain synthetic generation process, or a separation model is applied to the correct global horizontal irradiance dataset.  There are resulting artifacts of using either of these methods which result in poor fit to measured data.  The markov chain method seriously degrades the accuracy of irradiance components by time of day and modeling the diffuse on linearly corrected global horizontal irradiance degrades the clearness index calculation.</p>
-<h2 id="methods">Methods</h2>
-<p>In an attempt to improve the performance of the long term correlation and account for non-linear artifacts of the satellite model, I attempted to use the Kolmogorov-Smirnoff Index instead of the linear correction factor.  The program as written finds the concurrent period between the satellite global horizontal irradiance data series and the corresponding pyranometer (sensor) data series.  The satellite data is then sorted into a cumulative distribution function and labeled by index.  The same is done for the pyrnaometer data series.  Next, the algorithm exands its scope to the full timeseries dataset and applies a correction by replacing values in the satellite data series from the pyranometer data series by index.  Once this is completed one can apply a separation model to attain the desired irradiance components.</p>
-<h2 id="results">Results</h2>
-<p>Although the KSI method reduces the mean bias error as well as the root mean square error of the resulting global horizontal data series, the resulting irradiance components as attained by the separation model does not show a significant improvement over the original satellite dataset.  It was found that using relative humidity and pressure data from the satellite file seriously degrades the performance of the separation model, calling into question the accuracy of those datasets.  Using only the minimum inputs to the separation model gives an improved mean bias error of the diffuse component of irradiance, but slightly degrades the root mean square error.  This may be due to the fact that the satellite datasource uses the DirIndex separation model, where we used the less sophisticated DirInt model due to lack of reliable inputs.  Overall, this alternative methodology for long term correlations is without question an improvement on the linear fit method, but not a panacea for all of the questions that may arise when attempting to statistically correlate satellite datasets with sensor based ones.</p></div>
+</table></div>
         
         
     </div>
