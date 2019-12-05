@@ -118,6 +118,7 @@
 <p>Because a gaussian probability density function poorly fits the resulting modeled dataset it is necessary to find an alternative distribution for each month-hour. One intuitive method for finding this distribution used by EDFR was to fit predetermined parametric probability density functions to the data and select the best one via minimization of sum square error.  Using this method we attempted to fit 98 different distributions and found that 6 was the minimum number of distributions needed to properly fit the varieties of solar production data.  All 98 distributions could be used, but requires significantly more computation time for a diminishing return of distribution fit.  The six different distributions selected were:  Johnson SU, Generalized Logistic, Pearson 3, Gaussian Hyper Geometric, Generalized Extreme Value and Weibull Maximum. </p>
 <p>Unfortunately, even the full set of parametric distributions was not sufficient to properly model the variability of hourly performance.  Due to this fact, an alternative method was also developed to fit the modeled dataset in order to account for the possibility of poor fit from the parametric probability density functions.  In this method, a 1 dimensional kernel density estimation was performed on the dataset and the resulting distribution was used in the same way in order to find the final production P-Values.  The kernel estimation was implemented with the KDEpy package with multiple kernels and bandwidth estimation algorithms attempted.</p>
 <h4 id="results">Results</h4>
+<p>It was determined that the Kernel Density Estimate methodology activated with the Improved Sheather Jones algorithm for bandwidth estimation best approximated the shape of the hourly variability distribution.  It would be very interesting to explore the effect of varying the bandwidth of the gaussian kernel according to each individual modeling step.  For example, the bandwidth could increase/decrease with transposition angles, irradiance conditions, or satellite parallax angles. As of yet we have not had time to explore these effects on the resulting distribution. </p>
 <table>
 <thead>
 <tr>
@@ -144,7 +145,7 @@
 </tr>
 <tr>
 <td><img alt="KDE" src="../proj_images/variability_kde.png" /></td>
-<td>Example of improved fir of kernel density estimates during the same month-hour</td>
+<td>Example of improved fit of kernel density estimates during the same month-hour</td>
 </tr>
 </tbody>
 </table></div>
