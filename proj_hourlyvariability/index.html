@@ -11,7 +11,7 @@
     <link rel="../img/favicon.ico">
 
     
-    <title>Kurt Rhee (Simon Kurtis Rhee II) - KurtRhee</title>
+    <title>Hourly Variability of PV Performance - KurtRhee</title>
     
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -99,13 +99,55 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</a></li>
+        <li class="first-level active"><a href="#hourly-variability-of-pv-performance">Hourly Variability of PV Performance</a></li>
+            <li class="second-level"><a href="#a-comparison-of-gaussian-parametric-best-fit-and-kernel-density-estimate-approaches-to-estimating-the-hourly-variability-of-pv-plant-peformance">A Comparison of Gaussian, Parametric Best Fit, and Kernel Density Estimate Approaches to Estimating the Hourly Variability of PV Plant Peformance</a></li>
+                
+                <li class="third-level"><a href="#introduction">Introduction</a></li>
+                <li class="third-level"><a href="#methodology">Methodology</a></li>
+                <li class="third-level"><a href="#results">Results</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</h1>
-<p>This is a test of the autolayout page</p></div>
+<h1 id="hourly-variability-of-pv-performance">Hourly Variability of PV Performance</h1>
+<h2 id="a-comparison-of-gaussian-parametric-best-fit-and-kernel-density-estimate-approaches-to-estimating-the-hourly-variability-of-pv-plant-peformance">A Comparison of Gaussian, Parametric Best Fit, and Kernel Density Estimate Approaches to Estimating the Hourly Variability of PV Plant Peformance</h2>
+<h4 id="introduction">Introduction</h4>
+<p>As the complexity of offtake contracts for grid scale solar energy increases, it becomes necessary to understand the long term hourly variability of plant performance in order to better determine the likelihood of over or under producing the contracted amount during specific times of day.  EDFR has developed two methods for quantifying the risk of over and underproduction on an hourly timescale.  The first method matches the long term modeled data to a best fit parametric probability density function and then combines each month-hour into a larger variability distribution via monte carlo.  The second method uses a 1 dimensional kernel density estimation technique to model the variability of the long term dataset and then combines each month-hour in the same way.  The resulting probability density functions and their accompanying cumulative distribution functions can be used to determine the relevant P-Values of hourly plant perfomance.</p>
+<h4 id="methodology">Methodology</h4>
+<p>In order to determine the likelihood of producing a certain amount of energy during a certain month and hour of the year, we first created a 19 year backcast of PV plant production using a satellite data source, specific plant design parameters and PVSyst.  The plant analyzed as an example in this paper was a 1.36 DC / AC ratio, single axis tracker system in the United State`s desert southwest region with a 100 MW large generator interconnection agreement (LGIA).  This data was then aggregated via a python script into a month-hour (12x24) dataset.  A 12x24 scheme was chosen as it provided more datapoints than the altenative 8760 scheme which would only give 19 datapoints per hour, though we do note that the 12x24 does have an increased possible distribution spread due to differences in solar geometry during a given month as well as local climatological variables.  Each dataset contains 19 months * (n) number of days in the month data points resulting in approximately 570 data points per dataset.  </p>
+<p>Because a gaussian probability density function poorly fits the resulting modeled dataset it is necessary to find an alternative distribution for each month-hour. One intuitive method for finding this distribution used by EDFR was to fit predetermined parametric probability density functions to the data and select the best one via minimization of sum square error.  Using this method we attempted to fit 98 different distributions and found that 6 was the minimum number of distributions needed to properly fit the varieties of solar production data.  All 98 distributions could be used, but requires significantly more computation time for a diminishing return of distribution fit.  The six different distributions selected were:  Johnson SU, Generalized Logistic, Pearson 3, Gaussian Hyper Geometric, Generalized Extreme Value and Weibull Maximum. </p>
+<p>Unfortunately, even the full set of parametric distributions was not sufficient to properly model the variability of hourly performance.  Due to this fact, an alternative method was also developed to fit the modeled dataset in order to account for the possibility of poor fit from the parametric probability density functions.  In this method, a 1 dimensional kernel density estimation was performed on the dataset and the resulting distribution was used in the same way in order to find the final production P-Values.  The kernel estimation was implemented with the KDEpy package with multiple kernels and bandwidth estimation algorithms attempted.</p>
+<h4 id="results">Results</h4>
+<table>
+<thead>
+<tr>
+<th>Figure</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Gaussian" src="../proj_images/variability_gaussian.png" /></td>
+<td>Using a gaussian distribution instead of a best fit distribution resulted in unwanted artifacts such as P Values which allow generation above the plant LGIA, and P Values which allow negative generation.</td>
+</tr>
+<tr>
+<td><img alt="Best Fit" src="../proj_images/variability_bestfit.png" /></td>
+<td>P Values using a best fit distribution method.  The red line is the plant LGIA.  P Values spreading away from P50 are represented by successions of lighter blue lines.</td>
+</tr>
+<tr>
+<td><img alt="Parametric" src="../proj_images/variability_parametric.png" /></td>
+<td>98 Possible distributions tested on an example month-hour with one parametric distribution chosen</td>
+</tr>
+<tr>
+<td><img alt="Poor Fit" src="../proj_images/variability_poorfit.png" /></td>
+<td>Example of the poor fit of parametric distributions during am example month-hour</td>
+</tr>
+<tr>
+<td><img alt="KDE" src="../proj_images/variability_kde.png" /></td>
+<td>Example of improved fir of kernel density estimates during the same month-hour</td>
+</tr>
+</tbody>
+</table></div>
         
         
     </div>
