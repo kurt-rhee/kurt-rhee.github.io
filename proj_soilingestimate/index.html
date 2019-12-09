@@ -11,7 +11,7 @@
     <link rel="../img/favicon.ico">
 
     
-    <title>Kurt Rhee (Simon Kurtis Rhee II) - KurtRhee</title>
+    <title>Soiling Estimate with Cleaning Schedule - KurtRhee</title>
     
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -99,13 +99,24 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</a></li>
+        <li class="first-level active"><a href="#soiling-estimate-with-cleaning-schedule">Soiling Estimate with Cleaning Schedule</a></li>
+            <li class="second-level"><a href="#determining-the-optimal-cleaning-schedule-for-optimizing-pv-plant-return">Determining the Optimal Cleaning Schedule for Optimizing PV Plant Return</a></li>
+                
+                <li class="third-level"><a href="#introduction">Introduction</a></li>
+                <li class="third-level"><a href="#methodology">Methodology</a></li>
+                <li class="third-level"><a href="#results">Results</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</h1>
-<p>This is a test of the autolayout page</p></div>
+<h1 id="soiling-estimate-with-cleaning-schedule">Soiling Estimate with Cleaning Schedule</h1>
+<h2 id="determining-the-optimal-cleaning-schedule-for-optimizing-pv-plant-return">Determining the Optimal Cleaning Schedule for Optimizing PV Plant Return</h2>
+<h4 id="introduction">Introduction</h4>
+<p>EDFR's methodology for determining soiling's affect on PV plant performance is to determine the soiling rate through a soiling measurement station, the statistical likelihood of panel cleaning rain events at different times of the year, and then combine the two by simulating a year of performance, degrading panel output until a stochastically determined rain event is detected.  Though this method was effective, it was implemented in excel which took a long time and could not account for cleaning events.  </p>
+<h4 id="methodology">Methodology</h4>
+<p>In order to determine the optimal schedule for cleaning, balancing improved plant performance with added OPEX costs, EDFR developed a tool which iterates through every possibility of cleaning scenario and determines which is most financially effective.  For example, for two panel cleanings per year, the algorithm would return plant performance with a cleaning in (january, february), (january, march), (january, april) etc. until all possibilities were exhuasted. </p>
+<h4 id="results">Results</h4>
+<p>This tool allows EDFR to budget for optimal cleaning schedules during the plant lifetime, improving financial decision making and implementation in python rather than excel greatly increased the speed of process.</p></div>
         
         
     </div>
