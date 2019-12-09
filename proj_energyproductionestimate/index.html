@@ -11,7 +11,7 @@
     <link rel="../img/favicon.ico">
 
     
-    <title>Kurt Rhee (Simon Kurtis Rhee II) - KurtRhee</title>
+    <title>Energy Production Estimate Template - KurtRhee</title>
     
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -99,13 +99,34 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</a></li>
+        <li class="first-level active"><a href="#energy-production-estimate-template">Energy Production Estimate Template</a></li>
+            <li class="second-level"><a href="#a-streamlined-approach-to-creating-the-main-deliverable-for-the-edfr-solar-engineering-group">A Streamlined Approach to Creating the Main Deliverable for the EDFR Solar Engineering Group</a></li>
+                
+                <li class="third-level"><a href="#introduction">Introduction</a></li>
+                <li class="third-level"><a href="#methodology">Methodology</a></li>
+                <li class="third-level"><a href="#results">Results</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</h1>
-<p>This is a test of the autolayout page</p></div>
+<h1 id="energy-production-estimate-template">Energy Production Estimate Template</h1>
+<h2 id="a-streamlined-approach-to-creating-the-main-deliverable-for-the-edfr-solar-engineering-group">A Streamlined Approach to Creating the Main Deliverable for the EDFR Solar Engineering Group</h2>
+<h4 id="introduction">Introduction</h4>
+<p>The Solar Engineering Group at EDFR and at many other companies faces a large constraint which forces them to use PVSyst in their energy production estimate reports.  This is due to the fact that large financing bodies have a longstanding familiarity with PVSyst and often do not want to use reports from other vendors.  Legacy tools at the company to pre and post-process data into and out of PVsyst were all created in separate excel tools.  In order to complete a full energy estimate, solar engineers needed to open up at least 3 different instances of excel and switch back and forth between them to gather the correct information.</p>
+<h4 id="methodology">Methodology</h4>
+<p>Streamlining this process meant combining many excel tools into just one, to serve as a front end for python code which runs on a remote server, introducing batch processing functionalities and the ability to create deliverable files for the newly formed storage team.  These new deliverables not created in the original tool include energy for storage optimization at the battery terminals and energy shifting results.</p>
+<p>The tool begins with an excel based interface which simplifies the design of a grid scale PV plant.  This design is then carried over to an interstitial page which allows the user to automatically create batch files for PVSyst, or test buildable land areas to see if they fit the desired design.  Once these intermediate calculations are done, the user runs PVsyst and clicks "Run EPE" on the excel interface.</p>
+<p>Once the "Run EPE" button is clicked, a python script on a remote server post-processes all of the PVSyst losses, adding a few calculations and combines all of the resulting data into a deliverable template ready to be consumed by the end user.  </p>
+<h4 id="results">Results</h4>
+<p>The end result of all of this automation is approximately 25 minutes per use of the tool.  With the team at its current size, the tool gives the following financial benefits:</p>
+<ul>
+<li>639.45% ROI</li>
+<li>$433,817 NPV with a 5% discount rate over 5 years</li>
+<li>$103,956 Yearly Saved Cost</li>
+</ul>
+<p>These benefits are expected to grow as more people are added to the solar and storage engineering teams and more possible solar projects are examined.  </p>
+<p><img alt="Waterfall_Chart" src="../proj_images/epe_waterfall.png" /> 
+Figure 1:  An Example Waterfall Chart of Losses Experience by a Grid Scale PV Plant Included in EPE 2.0</p></div>
         
         
     </div>

@@ -11,7 +11,7 @@
     <link rel="../img/favicon.ico">
 
     
-    <title>Kurt Rhee (Simon Kurtis Rhee II) - KurtRhee</title>
+    <title>Bifacial Test Facility Dashboard - KurtRhee</title>
     
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -99,13 +99,30 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</a></li>
+        <li class="first-level active"><a href="#bifacial-test-facility-dashboard">Bifacial Test Facility Dashboard</a></li>
+            <li class="second-level"><a href="#a-streamlined-data-pipeline-and-dashboard-for-bifacial-test-facility-data">A Streamlined Data Pipeline and Dashboard for Bifacial Test Facility Data</a></li>
+                
+                <li class="third-level"><a href="#introduction">Introduction</a></li>
+                <li class="third-level"><a href="#methdology">Methdology</a></li>
+                <li class="third-level"><a href="#results">Results</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="kurt-rhee-simon-kurtis-rhee-ii">Kurt Rhee (Simon Kurtis Rhee II)</h1>
-<p>This is a test of the autolayout page</p></div>
+<h1 id="bifacial-test-facility-dashboard">Bifacial Test Facility Dashboard</h1>
+<h2 id="a-streamlined-data-pipeline-and-dashboard-for-bifacial-test-facility-data">A Streamlined Data Pipeline and Dashboard for Bifacial Test Facility Data</h2>
+<h4 id="introduction">Introduction</h4>
+<p>EDFR created a bifacial test facility in the Mojave Desert in order to validate and improve energy models for the performance of bifacial P.V. modules. In order to accomplish this task an array of sensors and monitoring instruments report data to a datalogger, which then stores information in SQL Server.  The business problem then faced by EDFR was that Excel could not handle the amount of data produced as well as the fact that Excel is not well suited for repeatable calculations and quite a bit of expensive engineer time was wasted manually processing data that could be processed by machine.</p>
+<h4 id="methdology">Methdology</h4>
+<p>In order to solve this problem, a SQl to Parquet pipeline (ETL) was created with a numerous amount of data cleaning and processing included.  Real world data being what it is, visual checks of all of the cleaning were included in a flask based web dashboard for engineers to monitor as well as download desired data periods at desired data frequency.  </p>
+<p>A monthly report was also generated via Python in PowerPoint in order to quickly calculate interesting KPI's for the enigneering team regarding module performance under historical climatte conditions.</p>
+<h4 id="results">Results</h4>
+<p>The financial result of the dashboard and underlying data pipeline was approximately:</p>
+<ul>
+<li>1,592 Hours and associated salry (and sanity) of senior level engineering staff saved.</li>
+<li>Increased accuracy of reported data</li>
+</ul>
+<p>No images are included due to the proprietary nature of this project.</p></div>
         
         
     </div>
