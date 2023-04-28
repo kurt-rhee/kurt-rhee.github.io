@@ -7,7 +7,7 @@ tags: [layout, graph, clustering]
 ---
 
 <p align="center">
-    <img src="../assets/images/layout-ac-clusters.png/" width=300>
+    <img src="assets/images/layout-ac-clusters.png/" width=300>
 </p>
 
 # Motivation
@@ -23,9 +23,9 @@ Often, the first question asked when acquiring a piece of land is how much capac
 Stopping at the capacity check step will result in an over-estimation of the real capacity that a piece of acquired land will fit since even though the tracker polygons might fit geometrically, they might not fit electrically or economically.  Following those constraints, the question becomes which trackers should we remove from the geometric layout?  The answer we came up with is to remove the trackers which are the most difficult to connect electrically.  For example the ones that are furthest away from other trackers and would require longer wire runs.  In order to determine which trackers are the least connected, we converted the geometric layout to a graph and ranked trackers by their number of nearest neighbors, removing the tracker with the least nearest neighbors and then recomputing the edges once that tracker was removed.
 
 <p align="center">
-    <img src="../assets/images/layout-nearest-neighbors.png/" width="300">
+    <img src="assets/images/layout-nearest-neighbors.png/" width="300">
 </p>
 
 <p align="center">
-    <img src="../assets/images/layout-over-capacity.png/" width="300">
+    <img src="assets/images/layout-over-capacity.png/" width="300">
 </p>
