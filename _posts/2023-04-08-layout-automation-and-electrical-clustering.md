@@ -6,12 +6,10 @@ summary: Layout automation project
 tags: [layout, clustering]
 ---
 
-# Layout Automation
-
-## Motivation
+# Motivation
 Designing a photovoltaic powerplant takes a long time.  Generally it also takes a lot of skilled labor, but sometimes it doesn't make sense to design an entire power plant from start to finish before making a decision regarding the plant's design.  If we can iterate very quickly over a set of indicative designs and then feed these designs into both a performance model and a financial model, we can improve project economics by searching a parameter space that would be too large, too slow and too error prone to create by humans alone.  The solution space below shows a set of programs that can be used individually or in a pipeline depending on the project's maturity to very quickly determine project economics.
 
-## Solution
+# Solution
 In order to quickly generate designs and then feed these design parameters into a financial model, the layout of the photovoltaic panels on given parcels of land must be determined. 
 
 ### 1. Capacity Check
