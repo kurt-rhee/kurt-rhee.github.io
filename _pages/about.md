@@ -11,11 +11,8 @@ expand my curiosity while also making positive impacts on the environment.  This
 that I have contributed to throughout my career, as well as an archive of interesting problems that I have come across.
 
 Outside of work, I enjoy surfing, rock climbing and literature.
-<p align="center">
-    <img src="assets/images/profile.png/" width="300">
-</p>
+
 ![useful image]({{ site.url }}/assets/images/profile.png)
-<img class="image" src="/assets/images/image.png" width="300">
 
 #### My Links
 - [Linkedin](https://www.linkedin.com/in/simonkurtisrhee/)
