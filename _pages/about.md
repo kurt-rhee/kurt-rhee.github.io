@@ -15,6 +15,7 @@ Outside of work, I enjoy surfing, rock climbing and literature.
     <img src="assets/images/profile.png/" width="300">
 </p>
 ![useful image]({{ site.url }}/assets/images/profile.png)
+<img class="image" src="/assets/images/image.png" width="300">
 
 #### My Links
 - [Linkedin](https://www.linkedin.com/in/simonkurtisrhee/)
