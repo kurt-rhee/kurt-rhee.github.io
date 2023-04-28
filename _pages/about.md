@@ -3,26 +3,21 @@ layout: page
 title: About
 ---
 
-Sidey is a simple and minimalistic jekyll blogging theme.
+### Hello, my name is Kurt Rhee.
 
-### Features
+I am currently working as a Performance Engineer for Terabase Energy, specifically on PlantPredict software.
+Day to day, this means that I split my time between 4 rather fluid roles: technical product management, performance modeling, software development and ux integration design.
 
-- Responsive design
-- Inline CSS
-- Anchor headings
-- Search
-- Tags & tag pages
-- Security headers (for Netlify hosting)
-- 404 page
-- Compressed CSS and HTML
-- 100/100 score on Lighthouse, Page Speed Insights & Webpagetest
-- Robots.txt
-- Atom & Json feeds
-- Sass
-- Seo optimized (Twitter cards, Facebook Open Graph, Schema.org)
-- Ultra fast (Only ~5kb of CSS)
-- Sidebar navigation
+- As a technical product manager, I prioritize and write specs for features or bug fixes that I would like our software development team to work on.
+- As a performance engineer I define the models that are used in PlantPredict's solar photovoltaic performance prediction engine, as well as advise Terabase's consulting team on matters regarding solar performance modeling.
+- As a software developer, I contribute to PlantPredict's proprietary backend API, its open source SDK and pvlib.
+- As a UX integration designer, I attempt to solve the [dual](https://www.experimental-history.com/p/science-is-a-strong-link-problem) problem of increasing the capability of PlantPredict while maintaining the tools ease of use.
 
-### Screenshot
+Outside of work, I enjoy surfing, rock climbing and literature.
 
-![Screenshot](screenshot.png)
+#### My Links
+- [Github](https://github.com/kurt-rhee)
+- Email:  <first-name><last-name>@gmail<dot><com>
+
+
+

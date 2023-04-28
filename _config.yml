@@ -1,14 +1,14 @@
-site: Sidey
-url: #yoururl
-title: Sidey
-description: Simple and minimalistic jekyll blogging theme.
+site: Kurt Rhee
+url: https://kurt-rhee.github.io
+title: Kurt Rhee
+description: A blog
 twitter:
   username: #yourusername
   card: summary
   creator: #yourusername
 author:
   twitter: #yourusername
-  name: #yourusername
+  name: kurt rhee
   avatar:
   email: #youremail
   url: #yoururl
