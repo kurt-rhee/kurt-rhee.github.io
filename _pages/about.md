@@ -14,6 +14,11 @@ Outside of work, I enjoy surfing, rock climbing and literature.
 <p align="center">
     <img src="assets/images/profile.png/" width="300">
 </p>
+<img src="./assets/images/profile.png/" width="300">
+<img src="../assets/images/profile.png/" width="300">
+<img src="assets/images/profile.png/">
+<img src="images/profile.png/">
+<img src="./images/profile.png/">
 
 
 #### My Links
