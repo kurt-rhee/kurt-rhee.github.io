@@ -1,5 +1,4 @@
 site: Kurt Rhee
-url: https://kurt-rhee.github.io
 title: Kurt Rhee
 description: A blog
 twitter:
@@ -14,7 +13,7 @@ author:
   url: #yoururl
 permalink: pretty
 
-baseurl: ""
+url: https://kurt-rhee.github.io
 
 highlighter: none
 
