@@ -5,19 +5,22 @@ title: About
 
 ### Hello, my name is Kurt Rhee.
 
-I am currently working as a Performance Engineer for Terabase Energy, specifically on PlantPredict software.
-Day to day, this means that I split my time between 4 rather fluid roles: technical product management, performance modeling, software development and ux integration design.
-
-- As a technical product manager, I prioritize and write specs for features or bug fixes that I would like our software development team to work on.
-- As a performance engineer I define the models that are used in PlantPredict's solar photovoltaic performance prediction engine, as well as advise Terabase's consulting team on matters regarding solar performance modeling.
-- As a software developer, I contribute to PlantPredict's proprietary backend API, its open source SDK and pvlib.
-- As a UX integration designer, I attempt to solve the [dual](https://www.experimental-history.com/p/science-is-a-strong-link-problem) problem of increasing the capability of PlantPredict while maintaining the tools ease of use.
+I am fortunate that thus far, my career has afforded me the opportuntity to dive into a wide variety of topics ranging from performance modeling,
+computational geometry, software development, technical product management and ux integration design.  I have also njoyed the opportunity to 
+expand my curiosity while also making positive impacts on the environment.  This website is both a means of showcasing some of the work
+that I have contributed to throughout my career, as well as an archive of interesting problems that I have come across.
 
 Outside of work, I enjoy surfing, rock climbing and literature.
+<p align="center">
+    <img src=../assets/images/profile.png/ width=300>
+</p>
+
 
 #### My Links
+- [Linkedin](https://www.linkedin.com/in/simonkurtisrhee/)
+- [ORCID](https://orcid.org/0000-0003-4604-9531?lang=en)
 - [Github](https://github.com/kurt-rhee)
-- Email:  <first-name><last-name>@gmail<dot><com>
+- Email:  \<first-name\>\<last-name\>@gmail\<dot\>com
 
 
 
