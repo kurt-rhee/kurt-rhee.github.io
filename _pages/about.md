@@ -10,7 +10,8 @@ title: About
 I am fortunate that thus far, my career has afforded me the opportuntity to work at the intersection between a wide variety of topics including performance modeling,
 computational geometry, software development, technical product management and ux integration design.  I have also enjoyed the opportunity to 
 expand my curiosity while also making positive impacts on the environment.  This website is both a means of showcasing some of the work
-that I have contributed to throughout my career, as well as an archive of interesting problems that I have come across.
+that I have contributed to throughout my career, as well as an archive of interesting problems that I have come across that do not warrant something as formal as an
+official publication.
 
 Outside of work, I enjoy surfing, rock climbing and literature.
 
