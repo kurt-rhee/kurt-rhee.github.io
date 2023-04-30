@@ -67,6 +67,11 @@ img {
 	max-width:100%;
 }
 
+img[src*='#center'] { 
+    display: block;
+    margin: auto;
+}
+
 hr {
 	background: #000;
     height: 1px;
