@@ -32,15 +32,15 @@ The next high level question we must answer when it comes to plant design is the
 
 The project context switches for the next few images, apologies for using different examples.  I am writing about this years after implementing the solution and only have access to photos from an old publication.
 
-![useful image]({{ site.url }}/assets/images/layout-initial-clustering.png)
+![spectral clustering]({{ site.url }}/assets/images/layout-initial-clustering.png)
 
 The first pass guess our program takes to determine inverter-tracker electrical groupings is to attempt a clustering operation.  We tried many different clustering algorithms including K-means and others that exist in the sci-kit python library, but decided that feeding the graph form of the layout to a spectral clustering algorithm gave the best initial results.  Above you can see two clusters that were guessed by the algorithm and the resulting centroids of all tracker objects in each individual cluster.  We believe that spectral clustering performed better than location (x, y) based clustering due to its graph based knowledge of nearest neighbors.
 
-![useful image]({{ site.url }}/assets/images/layout-adjacency-chain.png)
+![adjacency chain]({{ site.url }}/assets/images/layout-adjacency-chain.png)
 
 The initial guess with spectral clustering, while usually good often did not meet the constraint of equal number of trackers per cluster.  By converting the graph form of the layout into an adjacency matrix, the program can then reassign trackers from overfull clusters to underfull clusters.  If we combine this idea with Djikstra's shortest path algorithm, it can efficiently do this operation even if overfull clusters are far away from underfull ones.
 
-![useful image]({{ site.url }}/assets/images/layout-final.png)
+![layout]({{ site.url }}/assets/images/layout-final.png)
 
 Once these clusters were created, then the program could comb through the layout and calculate indicative wire run lengths for each cluster (manhattan distance calculation), fencing considerations (bounding concave polygon problem), and other bill of quantities line items that could be fed into a capital expenditures calculator, as well as an API for performance modeling (PlantPredict) in order to calculate revenues.
 
