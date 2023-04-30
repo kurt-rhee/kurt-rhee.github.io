@@ -5,7 +5,7 @@ title: About
 
 ### Hello, my name is Kurt Rhee.
 
-![useful image]({{ site.url }}/assets/images/profile.png)
+![useful image]({{ site.url }}/assets/images/profile.png#center)
 
 I am fortunate that thus far, my career has afforded me the opportuntity to work at the intersection between a wide variety of topics including performance modeling,
 computational geometry, software development, technical product management and ux integration design.  I have also enjoyed the opportunity to 
