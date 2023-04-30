@@ -24,10 +24,31 @@ The above graph abstracts the tracker polygon into a representative 2D point whi
 
 ![removal of excess trackers]({{ site.url }}/assets/images/layout-remove-excess.png)
 
-We then removed the tracker with the least nearest neighbors and then recomputed the number of nearest neighbors for each node that was connected to the removed tracker.  Leaving us with a geometrically and electrically plausible layout of trackers.  
+The program then removed the tracker with the least nearest neighbors and then recomputed the number of nearest neighbors for each node that was connected to the removed tracker.  Leaving us with a geometrically and electrically plausible layout of trackers.  
 
 ### 3. Deciding Inverter Placement Locations
 
-The next high level question we must answer when it comes to plant design is the where should we place inverters relative to the available tracker objects?  The answer 
+The next high level question we must answer when it comes to plant design is the where should we place inverters relative to the available tracker objects?  The answer should be at the location which minimizes the amount of wire needed to connect all of the trackers to the inverter.  Besides the minimization function, a set of constraints must also be obeyed.  Each grouping of trackers should have equal number of trackers, for example we would not want one inverter to have 10 trackers while another has 234 trackers connected to it electrically, and each group of trackers should form a contiguous shape.  
+
+The project context switches for the next few images, apologies for using different examples.  I am writing about this years after implementing the solution and only have access to photos from an old publication.
 
 ![useful image]({{ site.url }}/assets/images/layout-initial-clustering.png)
+
+The first pass guess our program takes to determine inverter-tracker electrical groupings is to attempt a clustering operation.  We tried many different clustering algorithms including K-means and others that exist in the sci-kit python library, but decided that feeding the graph form of the layout to a spectral clustering algorithm gave the best initial results.  Above you can see two clusters that were guessed by the algorithm and the resulting centroids of all tracker objects in each individual cluster.  We believe that spectral clustering performed better than location (x, y) based clustering due to its graph based knowledge of nearest neighbors.
+
+![useful image]({{ site.url }}/assets/images/layout-adjacency-chain.png)
+
+The initial guess with spectral clustering, while usually good often did not meet the constraint of equal number of trackers per cluster.  By converting the graph form of the layout into an adjacency matrix, the program can then reassign trackers from overfull clusters to underfull clusters.  If we combine this idea with Djikstra's shortest path algorithm, it can efficiently do this operation even if overfull clusters are far away from underfull ones.
+
+![useful image]({{ site.url }}/assets/images/layout-final.png)
+
+Once these clusters were created, then the program could comb through the layout and calculate indicative wire run lengths for each cluster (manhattan distance calculation), fencing considerations (bounding concave polygon problem), and other bill of quantities line items that could be fed into a capital expenditures calculator, as well as an API for performance modeling (PlantPredict) in order to calculate revenues.
+
+# Conclusion
+
+The finished program creates slightly less feasible layouts, multiples of times faster than a human engineer.  This allows for applications built on top of it to iterate through a large matrix of possible plant designs, feeding the resulting capex, opex and generation profiles into a financial model and selecting the best performing plant in terms of a given financial metric. The tool decreases EDFR plant LCOE, increases competitiveness in bids and allows us to build better more profitable solar projects.
+
+
+### Acknowledgements
+
+Thanks to Cameron Nielsen who white boarded with me for many days on this project, and also created much of the user interface, and James Alfi and James Christopherson who saw the value of working on R&D projects while I worked at EDF Renewables.
