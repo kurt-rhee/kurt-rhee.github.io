@@ -6,23 +6,28 @@ summary: non-gaussian variability
 tags: [variability, uncertainty]
 ---
 
-![useful image]({{ site.url }}/assets/images/layout-initial-clustering.png)
-
 
 # Motivation
-A photvoltaic power plant owner may want to understand the likelihood of underperformance for their asset.  The standard practice at the time of this work is to fit probabilities of plant under and over-performance to a gaussian distribution, but gaussian distributions are not necessarily the best probability distribution function for photovoltaic power plant p-values, especially when taking inverter clipping and other physical limitations into account.
+A photvoltaic power plant owner may want to understand the likelihood of underperformance for their asset.  The standard practice at the time of this work is to fit probabilities of plant under and over-performance to a gaussian distribution, but gaussian distributions are not necessarily the best probability distribution function for photovoltaic power plant p-values, especially when taking inverter clipping and other physical limitations into account.  As the complexity of offtake contracts for grid scale solar energy increases, it becomes necessary to understand the long term hourly variability of plant performance in order to better determine the likelihood of over or under-producing the contracted amount during specific times of day.
 
-As the complexity of offtake contracts for grid scale solar energy increases, it becomes necessary to understand the long term hourly variability of plant performance in order to better determine the likelihood of over or under producing the contracted amount during specific times of day.
+![parametric best fit]({{ site.url }}/assets/images/non-gaussian-gaussian.png#center)
+
+Notice that the probability of exceedance for the gaussian model extends above the physically limiting interconnection limit.
 
 # Solution
 
-EDFR has developed two methods for quantifying the risk of over and underproduction on an hourly timescale.
+At EDFR we attempted two methods for quantifying the risk of over and underproduction on an hourly timescale.
 The first method matches the long term modeled data to a best fit parametric probability density function
-and then combines each month-hour into a larger variability distribution via monte carlo. The second
-method uses a 1 dimensional kernel density estimation technique to model the variability of the long term
+and then combines each month-hour into a larger variability distribution via monte carlo. 
+
+![parametric best fit]({{ site.url }}/assets/images/non-gaussian-parametric-best-fit.png#center)
+
+The second method uses a 1 dimensional kernel density estimation technique to model the variability of the long term
 dataset and then combines each month-hour in the same way. The resulting probability density functions and
 their accompanying cumulative distribution functions can be used to determine the relevant P-Values of
 hourly plant perfomance.
+
+![parametric best fit]({{ site.url }}/assets/images/non-gaussian-kde.png#center)
 
 In order to determine the likelihood of producing a certain amount of energy during a certain month
 and hour of the year, we first created a 19 year backcast of PV plant production using a satellite data source,
@@ -60,4 +65,6 @@ some risk for overfitting.
 It would be very interesting to explore the effect of varying the bandwidth of the gaussian kernel according
 to each individual modeling step. For example, the bandwidth could increase/decrease with transposition angles,
 irradiance conditions, or satellite parallax angles. As of yet we have not had time to explore these
-effects on the resulting distribution.    
+effects on the resulting distribution. 
+
+![parametric best fit]({{ site.url }}/assets/images/non-gaussian-parametric.png#center)
