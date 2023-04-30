@@ -11,7 +11,9 @@ I am fortunate that thus far, my career has afforded me the opportuntity to work
 computational geometry, software development, technical product management and ux integration design.  I have also enjoyed the opportunity to 
 expand my curiosity while also making positive impacts on the environment.  This website is both a means of showcasing some of the work
 that I have contributed to throughout my career, as well as an archive of interesting problems that I have come across that do not warrant something as formal as an
-official publication.
+official publication.  
+
+This website is inspired by (in content as well as in aesthetics) https://mikofski.github.io/ and https://nathanrooy.github.io/ which promote an informal sharing of knowledge without the self-promotion (likes+subscribes) that may be inherent to social media culture.  
 
 Outside of work, I enjoy surfing, rock climbing and literature.
 
