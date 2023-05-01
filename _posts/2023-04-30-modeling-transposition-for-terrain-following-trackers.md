@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Modeling Transposition for Horizontal Single Axis Trackers Which Employ Terrain Aware Backtracking 
+title: Modeling Transposition for Terrain Aware Backtracking
 description: terrain aware backtracking transposition modeling
 summary: terrain aware backtracking transposition modeling
 tags: [variability, uncertainty]
