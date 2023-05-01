@@ -8,7 +8,7 @@ tags: [variability, uncertainty]
 
 
 # Motivation
-A photvoltaic power plant owner may want to understand the likelihood of underperformance for their asset.  The standard practice at the time of this work is to fit probabilities of plant under and over-performance to a gaussian distribution, but gaussian distributions are not necessarily the best probability distribution function for photovoltaic power plant p-values, especially when taking inverter clipping and other physical limitations into account.  As the complexity of offtake contracts for grid scale solar energy increases, it becomes necessary to understand the long term hourly variability of plant performance in order to better determine the likelihood of over or under-producing the contracted amount during specific times of day.
+A photvoltaic power plant owner may want to understand the likelihood of underperformance for their asset.  The standard practice at the time of this work is to fit probabilities of plant under and over-performance to a gaussian distribution, but gaussian distributions are not necessarily the best probability distribution function for photovoltaic power plant p-values, especially when taking inverter clipping and other physical limitations into account.  As the complexity of offtake contracts for grid scale solar energy increases, it becomes necessary to understand the long term hourly variability of plant performance, as opposed to yearly variability, in order to better determine the likelihood of over or under-producing the contracted amount during specific times of day.
 
 ![parametric best fit]({{ site.url }}/assets/images/non-gaussian-gaussian.png#center)
 
