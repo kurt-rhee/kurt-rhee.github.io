@@ -20,14 +20,7 @@ At EDFR we attempted two methods for quantifying the risk of over and underprodu
 The first method matches the long term modeled data to a best fit parametric probability density function
 and then combines each month-hour into a larger variability distribution via monte carlo. 
 
-![parametric best fit]({{ site.url }}/assets/images/non-gaussian-parametric-best-fit.png#center)
-
-The second method uses a 1 dimensional kernel density estimation technique to model the variability of the long term
-dataset and then combines each month-hour in the same way. The resulting probability density functions and
-their accompanying cumulative distribution functions can be used to determine the relevant P-Values of
-hourly plant perfomance.
-
-![parametric best fit]({{ site.url }}/assets/images/non-gaussian-kde.png#center)
+![parametric best fit]({{ site.url }}/assets/images/non-gaussian-parametric.png#center)
 
 In order to determine the likelihood of producing a certain amount of energy during a certain month
 and hour of the year, we first created a 19 year backcast of PV plant production using a satellite data source,
@@ -57,6 +50,9 @@ and the resulting distribution was used in the same way in order to find the fin
 The kernel estimation was implemented with the KDEpy package with multiple kernels and bandwidth estimation
 algorithms attempted.
 
+![parametric best fit]({{ site.url }}/assets/images/non-gaussian-kde.png#center)
+
+
 # Results
 It was determined that the Kernel Density Estimate methodology activated with the Improved Sheather Jones
 algorithm for bandwidth estimation best approximated the shape of the hourly variability distribution, with
@@ -67,4 +63,4 @@ to each individual modeling step. For example, the bandwidth could increase/decr
 irradiance conditions, or satellite parallax angles. As of yet we have not had time to explore these
 effects on the resulting distribution. 
 
-![parametric best fit]({{ site.url }}/assets/images/non-gaussian-parametric.png#center)
+![parametric best fit]({{ site.url }}/assets/images/non-gaussian-best-fit.png#center)
