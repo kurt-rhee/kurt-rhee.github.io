@@ -3,14 +3,12 @@ layout: post
 title: Modeling Transposition for Terrain Aware Backtracking
 description: terrain aware backtracking transposition modeling
 summary: terrain aware backtracking transposition modeling
-tags: [variability, uncertainty]
+tags: [transposition, backtracking, nevados]
 ---
-
-![useful image]({{ site.url }}/assets/images/layout-initial-clustering.png)
 
 
 # Motivation
-In Progress
+This article will be published after PVSC 2023
 
 # Solution
-In Progress
+This article will be published after PVSC 2023
