@@ -6,7 +6,7 @@ summary: Terrain Aware Backtracking via Forward Ray Tracing
 tags: [variability, uncertainty]
 ---
 
-![useful image]({{ site.url }}/assets/images/forward-ray-tracing.png#center)
+![forward ray casting]({{ site.url }}/assets/images/forward-ray-tracing.png#center)
 
 
 # Motivation
