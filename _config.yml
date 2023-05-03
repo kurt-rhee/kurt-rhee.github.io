@@ -67,4 +67,4 @@ defaults:
       path: ""
       type: "projects"
     values:
-      layout: "post"
+      layout: "project"
