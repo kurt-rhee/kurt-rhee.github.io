@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Dual Problem of Solar Performance Modeling Software
-description: Post
+description: Blog
 summary: The Dual Problem of Solar Performance Models
 tags: [ux, user, experience, performance, model]
 ---
