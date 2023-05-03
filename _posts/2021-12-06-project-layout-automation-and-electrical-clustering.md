@@ -7,7 +7,7 @@ tags: [layout, graph, clustering]
 ---
 
 # Motivation
-Designing a photovoltaic powerplant takes a long time.  Generally it also takes a lot of skilled labor, but sometimes it doesn't make sense to design an entire power plant from start to finish before making a decision regarding the plant's design.  If we can iterate very quickly over a set of indicative designs and then feed these designs into both a performance model and a financial model, we can improve project economics by searching a parameter space that would be too large, too slow and too error prone to create by humans alone.  The solution space below shows a set of programs that can be used individually or in a pipeline depending on the project's maturity to very quickly determine project economics.
+Designing a photovoltaic power plant takes a long time.  Generally it also takes a lot of skilled labor, but sometimes it doesn't make sense to design an entire power plant from start to finish before making a decision regarding the plant's design.  If we can iterate very quickly over a set of indicative designs and then feed these designs into both a performance model and a financial model, we can improve project economics by searching a parameter space that would be too large, too slow and too error prone to create by humans alone.  The solution space below shows a set of programs that can be used individually or in a pipeline depending on the project's maturity to very quickly determine project economics.
 
 # Solution
 In order to quickly generate designs and then feed these design parameters into a financial model, the layout of the photovoltaic panels on given parcels of land must be determined. 
@@ -38,7 +38,7 @@ The first pass guess our program takes to determine inverter-tracker electrical 
 
 ![adjacency chain]({{ site.url }}/assets/images/layout-adjacency-chain.png#center)
 
-The initial guess with spectral clustering, while usually good often did not meet the constraint of equal number of trackers per cluster.  By converting the graph form of the layout into an adjacency matrix, the program can then reassign trackers from overfull clusters to underfull clusters.  If we combine this idea with Djikstra's shortest path algorithm, it can efficiently do this operation even if overfull clusters are far away from underfull ones.
+The initial guess with spectral clustering, while usually good often did not meet the constraint of equal number of trackers per cluster.  By converting the graph form of the layout into an adjacency matrix, the program can then reassign trackers from overfull clusters to under-full clusters.  If we combine this idea with Djikstra's shortest path algorithm, it can efficiently do this operation even if overfull clusters are far away from under-full ones.
 
 ![layout]({{ site.url }}/assets/images/layout-final.png#center)
 
