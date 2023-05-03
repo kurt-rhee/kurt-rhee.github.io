@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Physical Shade Shape Calculation Algorithm
-description: A Physical Shade Shape Calculation Algorithm
+description: Post
 summary: A Physical Shade Shape Calculation Algorithm
 tags: [shade, gpu, 3d]
 ---
