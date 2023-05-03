@@ -31,7 +31,7 @@ There are many different libraries which can be used to compile python programs 
 
 At this point, the field of possible frameworks has been narrowed to Numba, Taichi and Warp-lang.  
 
-Numba has the longest developmeht history, but a slower trajectory and a lower number of total Github stars.  While github stars are an imperfect memasure of popularity, they are an easily viewable metric to give readers a high level indication of what libraries people may be using and if that excitement is growing over time. 
+Numba has the longest development history, but a slower trajectory and a lower number of total Github stars.  While github stars are an imperfect measure of popularity, they are an easily viewable metric to give readers a high level indication of what libraries people may be using and if that excitement is growing over time. 
 
 Taichi (by their own benchmarks) benchmarks well in time tests against Numba.
 
