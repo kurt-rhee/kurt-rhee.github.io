@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Modeling Transposition for Terrain Aware Backtracking
-description: terrain aware backtracking transposition modeling
+description: Project
 summary: terrain aware backtracking transposition modeling
 tags: [transposition, backtracking, nevados]
 ---
