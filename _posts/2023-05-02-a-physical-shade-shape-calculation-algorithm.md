@@ -16,13 +16,15 @@ Unfortunately the algorithms used by the video game industry are **rendering** a
 
 ### Shadow Mapping
 
-Shadow mapping is an incredibly fast algorithm which solves the 3D shading problem in an ingenious way.  First, every object in 3D is projected into a plane which is perpendicular to the incoming rays of the sun.  For the sake of his blog post we will consider the incoming rays of the sun as a **directional light**, meaning rays from the light source are all parallel to one another.  By projecting the objects in the 3D scene onto a plane perpendicular to the lights incoming rays, the algorithm has created a 2D scene from the perspective of the light source.  Any objects not visible from the perspective of the incoming light rays are in shadow.  
-
-Why doesn't this algorithm work for solar performance engineers out of the box?  In the video game realm, the actual shadow shape in terms of geometry does not matter.  What that means is that the shadow geometries are not calculated in terms of vertices, edge lengths, or other constructs that may be recognizable to a mathematician.  Instead they are stored in computer memory as a matrix of grid cells where a cell can be either 1 (visible) or 0 (not visible).  This shortcut reduces the number of calculations to n where n is the number of pixels required for rendering.  This results in an undesired **artifact** called aliasing, where the shadow shape depends on the number of pixels computed.  As the number of pixels increases towards infinity, this algorithms becomes more precise, but unacceptably slow.
-
 ![aliasing example]({{ site.url }}/assets/images/3d-aliasing.png#center)
 
+Shadow mapping is an incredibly fast algorithm which solves the 3D shading problem in an ingenious way.  First, every object in 3D is projected into a plane which is perpendicular to the incoming rays of the sun.  For the sake of his blog post we will consider the incoming rays of the sun as a **directional light**, meaning rays from the light source are all parallel to one another.  By projecting the objects in the 3D scene onto a plane perpendicular to the lights incoming rays, the algorithm has created a 2D scene from the perspective of the light source.  Any objects not visible from the perspective of the incoming light rays are in shadow.  
+
+Why doesn't this algorithm work for solar performance engineers out of the box?  In the video game realm, the actual shadow shape in terms of geometry does not matter.  What that means is that the shadow geometries are not calculated in terms of vertices, edge lengths, or other constructs that may be recognizable to a mathematician.  Instead they are stored in computer memory as a matrix of grid cells where a cell can be either 1 (visible) or 0 (not visible).  This shortcut reduces the number of calculations to n where n is the number of pixels required for rendering.  This results in an undesired **artifact** called aliasing, where the shadow shape depends on the number of pixels computed.  Video game players may be familiar with this effect which is seen as a stair-step shaped shadow as displayed in the image above.  As the number of pixels increases towards infinity, this algorithms becomes more precise, but unacceptably slow.
+
 ### Ray Tracing
+
+![aliasing example]({{ site.url }}/assets/images/3d-ray-tracing.png#center)
 
 Ray Tracing is a well known algorithm which comes in many different flavors.  We will distinguish ray tracing from ray casting here by defining ray tracing as a superset of ray casting where a ray can be cast from the light source and then have n number of reflective bounces off of whatever material that it hits.  In contrast, ray casting will be defined as a ray shooting operation from the light source with no additional reflective bounces.  Ray Tracing and Ray Casting can produce remarkable images, especially as the number of rays shot tends towards infinity, but therein lies the same problem.  The fidelity of the results is not fixed, it depends on the number of rays cast.   With a large enough number of rays, the results from the ray tracing family of algorithms could theoretically be good enough for detailed performance modeling.
 
@@ -35,4 +37,4 @@ A counterpoint, if we were to take a set of 5 representative points for each cel
 
 ### Collision Detection
 
-Perhaps we remove ourselves from the constraint of finding solutions within the graphics processing sphere and instead search for solutions within the realm of physics engines.  
+Thus far we have been exploring algorithms that have been developed for the graphics processing industry.  There is another possiblity 
