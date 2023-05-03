@@ -2,10 +2,10 @@
 layout: default
 ---
 
-<section class="posts">
+<section class="projects">
 <ul>
-{% for post in site.posts %}
-<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }} BLAH</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time></li>
+{% for project in site.projects %}
+<li><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }} BLAH</a><time datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date: "%Y-%m-%d" }}</time></li>
 {% endfor %}
 </ul>
 </section>
