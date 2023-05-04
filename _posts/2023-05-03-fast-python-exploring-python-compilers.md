@@ -38,6 +38,8 @@ If you have reached this point in the blog post, congrats the field of possible 
 
 Numba has the longest development history, but a slower trajectory and a lower number of total Github stars.  While github stars are an imperfect measure of popularity, they are an easily viewable metric to give readers a high level indication of what libraries people may be using and if that excitement is growing over time. 
 
+![taichi]({{ site.url }}/assets/images/compiler-taichi.png#center)
+
 Taichi (by their own tests) benchmarks well in time tests against Numba.  It also includes some components right out of the box such as support for classes and a GUI which may help for some workloads such as those that require rendering.  Workloads like collision detection, ray casting, etc. may be easier to troubleshoot in Taichi than Numba.  
 
 Warp-lang is the newest entry to the space and is backed by Nvidia.  Warp-lang interacts with Nvidia Omniverse which acts as a GUI.  At the time of writing, warp-lang is relatively new and does not have as large of a community as Numba or Taichi.  
