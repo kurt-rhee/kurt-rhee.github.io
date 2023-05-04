@@ -22,6 +22,7 @@ One method of increasing the speed of Python is a compiler.  There are two main 
 
 There are many different libraries which can be used to compile python programs for faster operation, a few well known examples can be found below with some relevant details.  Assuming you want to develop a massively parallel simulation at scale for commercial use and not just for fun, and also assuming you work for an organization where paying for a license is prohibitive, you are left with Cython, Numba and Taichi since Codon employs a non-permissive license for commercial applications.  Generally, it can also be advantageous to work with free open source software (FOSS), since it is likely that more people will gravitate towards and contribute to software with permissive licensing over software with restrictive licensing.   Warp-lang, by Nvidia has a custom license which is commercially permissive.
 
+<br />
 
 | Compiler    | License     | Static      | JIT         | GPU         |
 | ----------- | ----------- | :---------: | :---------: | :---------: |
@@ -30,6 +31,8 @@ There are many different libraries which can be used to compile python programs 
 | Codon       | BSL         |      X      |      X      |       X     |
 | Taichi      | Apache 2.0  |             |      X      |       X     |
 | Warp-lang   | Custom      |             |      X      |       X     |
+
+<br />
 
 If you have reached this point in the blog post, congrats the field of possible frameworks has been narrowed by exactly 1.  Given the ability of some compilers to operate on both the CPU and GPU, the question then becomes why choose a compiler which can only target one processing architecture?  In my opinion this lack of functionality disqualifies Cython as the choice compiler for most modern compiled python projects.  
 
