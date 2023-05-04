@@ -24,7 +24,7 @@ There are many different libraries which can be used to compile python programs 
 
 
 | Compiler    | License     | Static      | JIT         | GPU         |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
+| ----------- | ----------- | :---------: | :---------: | :---------: |
 | Cython      | Apache 2.0  |      X      |             |             |
 | Numba       | BSD 2       |             |      X      |       X     |
 | Codon       | BSL         |      X      |      X      |       X     |
