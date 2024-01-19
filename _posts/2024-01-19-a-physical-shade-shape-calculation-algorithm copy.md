@@ -48,6 +48,9 @@ Even very advanced (and expensive) GPU's which support real time ray tracing ren
 
 A counterpoint, if we were to take a set of 5 representative points for each cell on a module and cast 1 ray per representative point, we would need to cast ~24 million rays per scene.  A much more feasible number.  This approach would be a nice starting point, because as GPU performance increases and costs come down, we can easily increase the number of representative points without large software development overhead.
 
+### Hemi-Cube
+The hemi-cube algorithm involves choosing a select number of target points on the module surface and then taking a 3D digital (discrete) picture of the world from each target point.  Each wall of the hemi-cube "camera" sees a projection of the world, and you can tell how much that point is shaded. With enough hemi-cubes you should get a good idea of how much shade is hitting your modules.  People who are interested in the hemi-cube approach should read DNV's recent papers by Hamer et. al.  they are well written and instructive.
+
 # Continuous Space Algorithms
 
 ### Polygon Clipping
@@ -58,9 +61,10 @@ One of the calculations one might expect a computational geometry engine to prov
 
 If we take every object in the 3D scene and project it into the 2 dimensional place perpendicular to the incoming rays of light, we now end up with a set of 2 dimensional polygons.  If these polygons overlap, that indicates that shade is being cast on one of the polygons.  Let's say we once again take the naive approach and test polygon intersection for each bay (4 edges * 55,000 bays) against every other bay in the site.  For our 100 MW example we would need ~48 million calculations.  This gives us perfectly precise  polygon shade shapes with less operations than the 7 billion calculations we would need to do in order to get cm^2 precision using ray casting.
 
+# Conclusion
 
+3D shade algorithms are hard.  There is a reason that not every solar performance software has one, and it is clear that there are still plenty of improvements that need to be made for us as an industry to truly feel confident when modeling on terrain.  
 
+Writing the 3d shade algorithm for PlantPredict was one of the most difficult problems I have worked on in my career thus far, and took me far outside of my performance modeling comfort zone into the realms of computation geometry, linear algebra, boolean geometry, the Rust programming language and algorithm design.  Not very many jobs let you explore so far off the rails of your written job description and I will always be grateful for such an opportunity.
 
-
-
-
+If you are still reading, I hope the difference between discrete space algorithms and continuous space algorithms is clear and you learned something new about the underlying algorithms used by different performance modeling software tools.  If there are any questions still lingering after reading the post please feel free to reach out to me via my email in the about section of this website and I would be happy to add additional context.
