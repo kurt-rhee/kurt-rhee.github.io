@@ -29,6 +29,7 @@ A quick detour is warranted here to discuss a few algorithms used by the graphic
 ### Shadow Mapping
 
 ![aliasing example]({{ site.url }}/assets/images/3d-aliasing.png#center)
+Figure 2:  Alias problems with the shadow map technique
 
 Shadow mapping is an incredibly fast algorithm which solves the 3D shading problem in an ingenious way.  First, every object in 3D is projected into a plane which is perpendicular to the incoming rays of the sun.  For the sake of his blog post we will consider the incoming rays of the sun as a **directional light**, meaning rays from the light source are all parallel to one another.  By projecting the objects in the 3D scene onto a plane perpendicular to the lights incoming rays, the algorithm has created a 2D scene from the perspective of the light source.  Any objects not visible from the perspective of the incoming light rays are in shadow.  
 
@@ -36,7 +37,8 @@ Why doesn't this algorithm work for solar performance engineers out of the box? 
 
 ### Ray Tracing
 
-![aliasing example]({{ site.url }}/assets/images/3d-ray-tracing.png#center)
+![ray tracing]({{ site.url }}/assets/images/3d-ray-tracing.png#center)
+Figure 3:  Conceptual example of ray tracing
 
 Ray Tracing is a well known algorithm which comes in many different flavors.  We will distinguish ray tracing from ray casting here by defining ray tracing as a superset of ray casting where a ray can be cast from the light source and then have n number of reflective bounces off of whatever material that it hits.  In contrast, ray casting will be defined as a ray shooting operation from the light source with no additional reflective bounces.  Ray Tracing and Ray Casting can produce remarkable images, especially as the number of rays shot tends towards infinity, but therein lies the same problem.  The fidelity of the results is not fixed, it depends on the number of rays cast.   With a large enough number of rays, the results from the ray tracing family of algorithms could theoretically be good enough for detailed performance modeling.
 
@@ -49,11 +51,19 @@ Even very advanced (and expensive) GPU's which support real time ray tracing ren
 A counterpoint, if we were to take a set of 5 representative points for each cell on a module and cast 1 ray per representative point, we would need to cast ~24 million rays per scene.  A much more feasible number.  This approach would be a nice starting point, because as GPU performance increases and costs come down, we can easily increase the number of representative points without large software development overhead.
 
 ### Hemi-Cube
+
+![hemi cube]({{ site.url }}/assets/images/hemi-cube.png#center)
+Figure 4:  Conceptual example of a hemicube
+
 The hemi-cube algorithm involves choosing a select number of target points on the module surface and then taking a 3D digital (discrete) picture of the world from each target point.  Each wall of the hemi-cube "camera" sees a projection of the world, and you can tell how much that point is shaded. With enough hemi-cubes you should get a good idea of how much shade is hitting your modules.  People who are interested in the hemi-cube approach should read DNV's recent papers by Hamer et. al.  they are well written and instructive.
 
 # Continuous Space Algorithms
 
 ### Polygon Clipping
+
+![polygon clipping]({{ site.url }}/assets/images/boolean-geometry.png#center)
+Figure 5:  Conceptual example of a polygon clipping algorithm
+
 
 Thus far we have been exploring algorithms that have been developed for the graphics processing industry.  Another community we can borrow ideas from is the computational geometry community.
 
