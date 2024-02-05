@@ -119,5 +119,10 @@ my advice.  On the contrary, if you have any advice that you think I missed, fee
 to comment on Linkedin or send me an email.  I would be happy to include it in the addendum here!
 
 # Addendum
+
+## For Job Seekers
+* None yet
+
+## For Early Career Engineers
 * Contextualize the each model within the larger model chain: "Consider the range of uncertainty for different stages of the loss tree (resource uncertainty will be much higher than mismatch calculations)".
 * Modelers should consider when certain data is reasonable to be expected (i.e. like the development process). like FTD will come only when after modules are shipped. so high and precise data and modeling will only be feasible at a certain part of the lifecycle.
