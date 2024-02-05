@@ -8,6 +8,9 @@ tags: [pv performance modeling, career]
 
 ### A step-by-step guide for students and engineers early in their non-academic career.
 
+![SandiaImage]({{ site.url }}/assets/images/sandia.png#center)
+Figure 1:  PV Performance Modeling Steps from https://pvpmc.sandia.gov/
+
 # Step 0 - Decide if this is a good path for you
 
 In one of my earliest interviews, a future boss of mine asked if I understood what the job I was applying
@@ -63,6 +66,8 @@ Things that might help set your resume apart:
  * Past experience in another renewables field such as wind.
  * Past experience in another solar sub-field such as residential, or commercial.
  * Experience with AutoCAD and Excel.
+ * Experience with Python.
+ * A contribution to the open source pvlib library.
  * A well researched cover letter.
 
 
@@ -91,14 +96,17 @@ Export the time-step by time-step data and see if you can calculate the values y
 to use the software in a clever way to calculate something that it wasn't explicity 
 programmed to do.  
 
-Read all of the help files.  If the help files don't help, go find another performance modeling
-software and read their help files on the same topic.  You don't need a subscription to read PlantPredict's help files.
-You don't need a subscription to read SolarFarmer's helpfile.  SAM is free!
-Pvlib is open source!
+Read all of the help files.  If PVSyst's help files don't give you enough information,
+go find another performance modeling software and read their help files on the same topic.
+You don't need a subscription to read PlantPredict or SolarFarmer's technical documentation.
+System Advisor model (SAM) is literally free.  I put a lot of time into making sure that
+the technical documentation at PlantPredict is detailed and easy to read,
+and I can tell that the SolarFarmer and SAM teams are doing the same.  It also
+goes almost without saying that there is nothing better than pvlib in terms of seeing
+exactly what a model does, down the code level.
 
-Any time there is a topic that I need to know better, I refer to all five sources.  PV performance modeling
-has no golden book which encompasses everything you need to know, but it does have
-free tutors everywhere if you know where to look.
+The field of PV performance modeling has no golden book which encompasses everything you need to know,
+but it does have free resources everywhere if you know where to look.
 
 # Step 3 - Find your niche
 
