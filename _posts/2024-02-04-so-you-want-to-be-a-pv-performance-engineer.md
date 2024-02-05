@@ -44,6 +44,7 @@ The terms:
  * Solar Engineer
  * Solar Resource Analyst
  * PV Performance Engineer
+
 and any permutation of the words used in those titles are basically equivalent to one another,
 and I encourage you to search for job titles that are similar to the ones listed above. 
 
@@ -86,8 +87,8 @@ it is much easier fill in the gaps until you have a good understanding of the to
 I suggest you build a mental scaffold of performance modeling topics by becoming a good user of whichever PV
 performance modeling software you choose to use (probably PVSyst).  Don't just learn to press the right buttons
 at the right time.  Figure out which models come before and after which other models and why. 
-Export the time-step by time-step data and see if you can calculate the values yourself.  
-Try to use the software in a clever way to calculate something that it wasn't explicity 
+Export the time-step by time-step data and see if you can calculate the values yourself.  Try 
+to use the software in a clever way to calculate something that it wasn't explicity 
 programmed to do.  
 
 Read all of the help files.  If the help files don't help, go find another performance modeling
