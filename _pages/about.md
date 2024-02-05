@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-![useful image]({{ site.url }}/assets/images/profile.png#center)
+![profile picture]({{ site.url }}/assets/images/profile.png#center)
 
 ### Hello, my name is Kurt Rhee.
 
