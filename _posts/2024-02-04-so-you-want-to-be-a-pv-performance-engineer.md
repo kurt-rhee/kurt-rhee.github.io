@@ -124,5 +124,10 @@ to comment on Linkedin or send me an email.  I would be happy to include it in t
 * None yet
 
 ## For Early Career Engineers
-* Contextualize the each model within the larger model chain: "Consider the range of uncertainty for different stages of the loss tree (resource uncertainty will be much higher than mismatch calculations)".
-* Modelers should consider when certain data is reasonable to be expected (i.e. like the development process). like FTD will come only when after modules are shipped. so high and precise data and modeling will only be feasible at a certain part of the lifecycle.
+* Renn Darawali
+    * Contextualize the each model within the larger model chain: "Consider the range of uncertainty for different stages of the loss tree (resource uncertainty will be much higher than mismatch calculations)".
+    * Modelers should consider when certain data is reasonable to be expected (i.e. like the development process). like FTD will come only when after modules are shipped. so high and precise data and modeling will only be feasible at a certain part of the lifecycle.
+* Mark Mikofski
+    * Two additional sources I would like to also mention to accelerate learning are https://pvpmc.sandia.gov (where the graphic above comes from) & https://www.pveducation.org/pvcdrom/welcome-to-pvcdrom.
+* Andreas Wabbes
+    * 1 advice I would give to people starting their career in pv modeling is try to go on-site from time to time. Our models are meant to create (investment) confidence in the future performance of solar assets, but we tend to sometimes overlook some basic issues from behind our PC. 
