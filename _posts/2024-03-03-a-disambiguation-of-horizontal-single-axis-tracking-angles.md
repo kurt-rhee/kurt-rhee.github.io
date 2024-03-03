@@ -9,10 +9,8 @@ tags: [hsat, horizontal, tracker, angle, gcr, truetracking, backtracking]
 
 
 
-<center>
-    <img src="/assets/images/trackers.jpeg" width=75% height=75%>
-    <p>Figure 1. Tracker Isometric View</p>
-</center>
+![Flat]({{ site.url }}/assets/images/trackers.jpeg#center)
+**Figure 2:**  A rendition of a horizontal single-axis tracking system made by Google's Gemini (formerly Bard)
 
 # Introduction
 
@@ -33,6 +31,7 @@ I am a former employee of Nevados Engineering which makes terrain following trac
 # 1. Astronomical Tracking AKA True Tracking
 
 ![Flat]({{ site.url }}/assets/images/flat.jpeg#center)
+**Figure 2:**  This algorithm was intended for use on flat surfaces.
 
 Astronomical tracking involves aligning solar panels with the sun's position throughout the day. This approach by definition maximizes the transposed irradiance on the surface of the PV modules during clear-sky conditions, but can cause inter-row shading because it does not take into account the system geometry.  Readers interested in developing their own tracking or performance modeling software may want to consult the further reading section below.  
 
@@ -43,7 +42,7 @@ Astronomical tracking involves aligning solar panels with the sun's position thr
 
 # 2. Backtracking
 
-![Flat]({{ site.url }}/assets/images/flat.jpeg#center)
+![Flat]({{ site.url }}/assets/images/flat.jpeg#center)**Figure 3:**  This algorithm was intended for use on flat surfaces.
 
 Backtracking adjusts the position of solar panels to prevent shading from adjacent rows assuming that all the module surfaces are horizontal and co-planar. The tracked surface can be made horizontal and co-planar either by building on flat land, or adjusting the tracker pile heights to bring the above surface into level.  Backtracking systems receive less transposed irradiance during clear-sky conditions than astronomically tracked systems, but also receive less row-to-row shading.  
 
@@ -59,6 +58,7 @@ An aside to talk about modeling:  In PVsyst version 7.0, cirum-solar irradiance 
 # 3. Slope-Aware Backtracking
 
 ![Sloped]({{ site.url }}/assets/images/slope.jpeg#center)
+**Figure 4:**  This algorithm was intended for use on sloped surfaces.
 
 Slope-aware backtracking is an improvement on standard backtracking which considers the slope of the terrain in addition to the ground coverage ratio (GCR) of the system.  This approach reduces the amount of row-to-row shading on sloped systems relative to a backtracking algorithm which does not take into account slope.  The slope aware backtracking algorithm assumes that there is only one slope experienced by the system and that the trackers are co-planar (aka not terrain-following).  Since not all site terrains can be characterized by only one single slope, advanced users of the algorithm may set up multiple sub-zones in their system so that each zone uses a different slope-aware backtracking strategy.  As the number of zones increases the more this algorithm approximates the terrain-aware backtracking algorithms that follow.
 
@@ -69,6 +69,7 @@ Slope-aware backtracking is an improvement on standard backtracking which consid
 # 4. Terrain-Aware Backtracking
 
 ![Terrain]({{ site.url }}/assets/images/terrain.jpeg#center)
+**Figure 5:**  These algorithms were intended for use on variable terrain surfaces
 
 There are a few different approaches to backtracking on variable terrain, meaning terrain which changes 
 
