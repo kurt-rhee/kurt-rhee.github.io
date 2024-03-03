@@ -6,17 +6,29 @@ summary: A Disambiguation of Horizontal Single Axis Tracking Algorithms
 tags: [hsat, horizontal, tracker, angle, gcr, truetracking, backtracking]
 ---
 
-# Introduction
 
-![Trackers]({{ site.url }}/assets/images/trackers.jpeg#center)
+
+
+<center>
+    <img src="/assets/images/trackers.jpeg" width=75% height=75%>
+    <p>Figure 1. Tracker Isometric View</p>
+</center>
+
+# Introduction
 
 Horizontal single-axis trackers (HSAT) play a crucial role in maximizing solar energy production, especially where I work in North America. Understanding the differences between the four main types of tracking modes:  astronomical tracking, GCR-based backtracking, slope-aware backtracking and terrain-aware backtracking can help solar performance engineers accurately model modern tracker systems and make informed system optimization decisions.  The following post is a high level primer on the four main types of tracking modes with references for those that might want to dive deeper.  
 
+In order to keep the post reasonably long, I've elected to skip over some algorithms which some tracker companies may employ.  If these algorithms interest you, let me know and I may write another blog post about them some time in the future.
+
 **Algorithms for a future blog post:**
+
 - Diffuse Irradiance Optimization
 - Wind Stow
 - Hail Stow
 - Flood Stow
+
+**Disclaimer:**
+I am a former employee of Nevados Engineering which makes terrain following trackers and I own stock in the company.   I try to write an un-biased blog, but no person exists completely outside of the influence of biases, and I encourage readers to take everything written here with a grain of salt. 
 
 # 1. Astronomical Tracking AKA True Tracking
 
