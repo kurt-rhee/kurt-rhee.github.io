@@ -7,9 +7,12 @@ tags: [hsat, horizontal, tracker, angle, gcr, truetracking, backtracking]
 ---
 
 # Introduction
+
+![Trackers]({{ site.url }}/assets/images/trackers.jpeg#center)
+
 Horizontal single-axis trackers (HSAT) play a crucial role in maximizing solar energy production, especially where I work in North America. Understanding the differences between the four main types of tracking modes:  astronomical tracking, GCR-based backtracking, slope-aware backtracking and terrain-aware backtracking can help solar performance engineers accurately model modern tracker systems and make informed system optimization decisions.  The following post is a high level primer on the four main types of tracking modes with references for those that might want to dive deeper.  
 
-## Algorithms for a future blog post
+**Algorithms for a future blog post:**
 - Diffuse Irradiance Optimization
 - Wind Stow
 - Hail Stow
@@ -21,7 +24,7 @@ Horizontal single-axis trackers (HSAT) play a crucial role in maximizing solar e
 
 Astronomical tracking involves aligning solar panels with the sun's position throughout the day. This approach by definition maximizes the transposed irradiance on the surface of the PV modules during clear-sky conditions, but can cause inter-row shading because it does not take into account the system geometry.  Readers interested in developing their own tracking or performance modeling software may want to consult the further reading section below.  
 
-Further reading:  
+**Further reading:** 
 - [Marion and Dobos 2013](https://github.com/kurt-rhee/pv-model-comparison/blob/main/tracking_angle_models/Marion_and_Dobos.pdf)
 - [Surface Angles Primer](https://github.com/pvlib/pvlib-python/issues/1911)
 
@@ -36,7 +39,7 @@ The choice of between astronomical tracking and backtracking often comes down to
 
 An aside to talk about modeling:  In PVsyst version 7.0, cirum-solar irradiance was included in the beam portion of irradiance rather than the diffuse portion.  This change increases the amount of energy predicted for tracking systems and also increases the relative performance of backtracking systems relative to astronomical tracking ones.  There are no studies that I am aware at the time of writing which discuss the trade-offs between modeling circumsolar as direct or diffuse, but if you are reading this sometime in the future and would like to contribute to this blog post please feel free to send published research my way.
 
-Further reading:
+**Further reading:**
 - [PVSyst 7.0 Announcement](https://forum.pvsyst.com/topic/2135-new-circumsolar-treatment-in-v-70/)
 - [Perez Components](https://pvpmc.sandia.gov/modeling-guide/1-weather-design-inputs/plane-of-array-poa-irradiance/calculating-poa-irradiance/poa-sky-diffuse/perez-sky-diffuse-model/)
 
@@ -47,7 +50,7 @@ Further reading:
 
 Slope-aware backtracking is an improvement on standard backtracking which considers the slope of the terrain in addition to the ground coverage ratio (GCR) of the system.  This approach reduces the amount of row-to-row shading on sloped systems relative to a backtracking algorithm which does not take into account slope.  The slope aware backtracking algorithm assumes that there is only one slope experienced by the system and that the trackers are co-planar (aka not terrain-following).  Since not all site terrains can be characterized by only one single slope, advanced users of the algorithm may set up multiple sub-zones in their system so that each zone uses a different slope-aware backtracking strategy.  As the number of zones increases the more this algorithm approximates the terrain-aware backtracking algorithms that follow.
 
-Further reading:
+**Further reading:**
 - [Anderson and Mikofski 2020](https://github.com/kurt-rhee/pv-model-comparison/blob/main/tracking_angle_models/Anderson_Mikofski_2020.pdf)
 - [Leung et al 2021](https://ieeexplore.ieee.org/abstract/document/9573469)
 
