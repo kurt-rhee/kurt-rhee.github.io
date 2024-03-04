@@ -29,6 +29,12 @@ In order to keep the post reasonably long, I've elected to skip over some algori
 
 I am a former employee of Nevados Engineering which makes terrain following trackers and I own stock in the company.   I try to write an un-biased blog, but no person exists completely outside of the influence of biases, and I encourage readers to take everything written here with a grain of salt. 
 
+**Useful Terminology:**
+- **Torque-Tube Axis Slope** or **Axis Slope**:  The slope of the ground in the torque tube direction.
+- **Cross-Axis Slope**:  The slope of the ground perpendicular to the torque tube direction.
+- **Tracker Azimuth Angle**:  The direction of the torque tube.  By convention the torque tube points towards the equator.
+- **Rotation Angle**:  Angle about the torque tube.  By convention the angle follow the right hand rule where the thumb points in the same direction as the tracker azimuth angle.
+
 # 1. Astronomical Tracking AKA True Tracking
 
 ![Terrain]({{ site.url }}/assets/images/terrain.jpeg#center)
@@ -99,3 +105,4 @@ The last approach is to create a digital 3D model of the site and then use the d
 # Conclusion
 
 I hope that this blog post helps clear up confusion around some of the different types of horizontal single-axis tracking algorithms that exist.  As always, if you have any insights you would like me to add please feel free to reach out to me, and let me know if there are any posts you want to see in the future.
+
