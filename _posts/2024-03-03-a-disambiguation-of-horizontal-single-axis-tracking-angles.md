@@ -77,19 +77,19 @@ There are a few different approaches to backtracking on variable terrain.  I wil
 Terrain-aware backtracking, at the time of writing, is relatively new and less understood than the other types of tracking algorithms.  To make this more confusing, a tracker company's proprietary tracking algorithm is often comprised of both a back-tracking component and a diffuse irradiance optimization component. I am only  discussing the backtracking component here, since diffuse irradiance optimization deserves a whole post to itself.  On top of that, there are three different sub-approaches to backtracking on terrain, used by different tracker companies which are often called "terrain-aware" even though the underlying concepts and performance implications between them are different.
 
 
-## 4. a. Increased GCR Backtracking
+## a. Increased GCR Backtracking
 
 The simplest approach to reducing shading losses on variable terrain is to start with the as-built ground coverage ratio (GCR), let's say 33%, and then gradually increase the tracking algorithm GCR until shading losses decrease to an acceptable level.  The goal is to optimize the control system GCR so that shading losses are minimized and transposed irradiance is maximized.  A system with this type of algorithm may be built with a 33% GCR, but will be controlled as if it were built with a 45% GCR.  This approach leaves some energy on the table since a single input (GCR) cannot optimize for variable terrain.  An increase in GCR which narrowly avoids shade in one part of the plant, may be too aggressive in another and cause less than optimal angles for transposition.
 
 One can improve upon this approach by using the slope-aware backtracking algorithm and/or using multiple slope-aware backtracking algorithms for different geographic zones in the project depending on the slope in a given zone.  As the number of zones increases, so does the performance of the plant. 
 
-## 4. c. Current Sensor Backtracking
+## b. Current Sensor Backtracking
 
 Another possible approach is to use live data from the plant when choosing backtracking angles.  For example, one could measure the current from a string of modules, or the current coming from a reference module (as long as that reference module spans the width of the modules on the tracker).  If the current is decreased by shading, then a more backtracked angle can be taken by each individual tracker until no shading is experienced.  
 
 This strategy is an improvement on increased GCR backtracking since it takes the data from each tracker into account.  A caveat:  With terrain following trackers, the reference module approach would not be able to eliminate all shade effects since the referene module only exists in one bay in a tracker which may have multiple bays each with its own unique angle and neighbor shading geometry.
 
-## 4. d. Digital Twin (Ray-Casting) Backtracking
+## c. Digital Twin (Ray-Casting) Backtracking
 
 The last approach is to create a digital 3D model of the site and then use the digital model to determine what angle each tracker must be at for each sun-angle in order to avoid shading.  This method allows individual tracker control much like current sensor backtracking, and makes modeling easier since you do not need to install the system to determine what angles the trackers should go to.  It also works for terrain-following (articulating) tracker architectures, but requires that the digital 3d model of the plant be accurate and representative of the as-built system.  
 
