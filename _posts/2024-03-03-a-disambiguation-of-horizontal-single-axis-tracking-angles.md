@@ -89,6 +89,9 @@ The simplest approach to reducing shading losses on variable terrain is to start
 
 One can improve upon this approach by using the slope-aware backtracking algorithm and/or using multiple slope-aware backtracking algorithms for different geographic zones in the project depending on the slope in a given zone.  As the number of zones increases, so does the performance of the plant. 
 
+**Further Reading**
+- [Anderson 2020](https://doi.org/10.1109/PVSC45281.2020.9300438)
+
 ## b. Current Sensor Backtracking
 
 Another possible approach is to use live data from the plant when choosing backtracking angles.  For example, one could measure the current from a string of modules, or the current coming from a reference module (as long as that reference module spans the width of the modules on the tracker).  If the current is decreased by shading, then a more backtracked angle can be taken by each individual tracker until no shading is experienced.  
