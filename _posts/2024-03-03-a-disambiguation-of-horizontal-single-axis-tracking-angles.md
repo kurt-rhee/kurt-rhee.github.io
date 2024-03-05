@@ -21,6 +21,7 @@ In order to keep the post reasonably long, I've elected to skip over some algori
 **Algorithms for a future blog post:**
 
 - Diffuse Irradiance Optimization
+- Half Cell Backtracking
 - Wind Stow
 - Hail Stow
 - Flood Stow
@@ -91,6 +92,7 @@ One can improve upon this approach by using the slope-aware backtracking algorit
 
 **Further Reading**
 - [Anderson 2020](https://doi.org/10.1109/PVSC45281.2020.9300438)
+- [Rhee 2023](https://ieeexplore.ieee.org/document/10360094)
 
 ## b. Current Sensor Backtracking
 
@@ -103,7 +105,8 @@ This strategy is an improvement on increased GCR backtracking since it takes the
 The last approach is to create a digital 3D model of the site and then use the digital model to determine what angle each tracker must be at for each sun-angle in order to avoid shading.  This method allows individual tracker control much like current sensor backtracking, and makes modeling easier since you do not need to install the system to determine what angles the trackers should go to.  It also works for terrain-following (articulating) tracker architectures, but requires that the digital 3d model of the plant be accurate and representative of the as-built system.  
 
 **Further Reading**
-- [Terrain Aware Backtracking via Forward Ray-Tracing](https://ieeexplore.ieee.org/document/9938554)
+- [Rhee 2020](https://ieeexplore.ieee.org/document/9938554)
+- [Rhee 2023](https://ieeexplore.ieee.org/document/10360094)
 
 # Conclusion
 
