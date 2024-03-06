@@ -25,6 +25,7 @@ In order to keep the post reasonably long, I've elected to skip over some algori
 - Wind Stow
 - Hail Stow
 - Flood Stow
+- Snow Stow
 
 **Disclaimer:**
 
@@ -92,7 +93,8 @@ One can improve upon this approach by using the slope-aware backtracking algorit
 
 **Further Reading**
 - [Anderson 2020](https://doi.org/10.1109/PVSC45281.2020.9300438)
-- [Rhee 2023](https://ieeexplore.ieee.org/document/10360094)
+- [Rhee 2023 on IEEExplore](https://ieeexplore.ieee.org/document/10360094)
+- [Rhee 2023 on Github](https://github.com/kurt-rhee/pv-model-comparison/blob/main/tracking_angle_models/Rhee_2023.pdf)
 
 ## b. Current Sensor Backtracking
 
