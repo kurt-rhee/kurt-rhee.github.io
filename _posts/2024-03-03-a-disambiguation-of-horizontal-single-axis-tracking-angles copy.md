@@ -10,7 +10,7 @@ tags: [hsat, horizontal, tracker, angle, gcr, truetracking, backtracking]
 
 
 ![Flat]({{ site.url }}/assets/images/trackers.jpeg#center)
-**Figure 2:**  A rendition of a horizontal single-axis tracking system made by Google's Gemini (formerly Bard)
+**Figure 1:**  A rendition of a horizontal single-axis tracking system made by Google's Gemini (formerly Bard)
 
 # Introduction
 
@@ -40,7 +40,7 @@ I am a former employee of Nevados Engineering which makes terrain following trac
 # 1. Astronomical Tracking AKA True Tracking
 
 ![Terrain]({{ site.url }}/assets/images/terrain.jpeg#center)
-**Figure 1:**  A rendering of a variable terrain surface, astronomical tracking can be used on any type of terrain.
+**Figure 2:**  A rendering of a variable terrain surface, astronomical tracking can be used on any type of terrain.
 
 Astronomical tracking involves aligning solar panels with the sun's position throughout the day. This approach by definition maximizes the transposed irradiance on the surface of the PV modules during clear-sky conditions, but can cause inter-row shading because it does not take into account the system geometry.  Readers interested in developing their own tracking or performance modeling software may want to consult the further reading section below.  
 
