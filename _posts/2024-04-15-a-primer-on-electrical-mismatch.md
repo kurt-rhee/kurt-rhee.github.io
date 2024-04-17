@@ -33,6 +33,18 @@ A quick aside, there are other types of electrical mismatch that can occur at an
 
 ### PV Systems Design
 
+In large utility scale solar power plants, many strings of module are generally connected to an inverter with a single maximum power point tracker (MPPT) or very few MPPTs relative to the number of strings.  This single point of common coupling for many strings of modules requires that all strings perform at the same level of current due to Kirchoffs current law. 
+
+
+
+
+
+
+
+
+
+
+
 ### Shading
 
 In a photovoltaic performance model, there are 3 different types of irradiance that hit the front side of a solar module:  beam, diffuse and ground reflected.  For now we will ignore the circumsolar portion (which generally gets bucketed into either the beam or diffuse portions), as well as the ground reflected irradiance which is generally considered to have an isotropic-ish effect much like the diffuse portion.  
