@@ -44,7 +44,7 @@ In large utility scale solar power plants, many strings of module are generally 
 
 ### Electrical Engineering
 
-This blog post assumes that the reader has taken entry level electrical engienering curriculum at the university level, but that a refresher may be useful.
+This blog post assumes that the reader has taken entry level electrical engineering curriculum at the university level, but that a refresher may be useful.
 
 Some rules to remember:
 
@@ -76,7 +76,7 @@ Diffuse irradiance on the other hand is less intuitive and encapsulates all of t
 
 **Misconception:  As soon as a module is shaded, production goes to zero**
 
-This cannot be true, since some diffuse light still shines on the module.  In Desert Center, CA (a location with a very low fraction of diffuse light energy relative to direct light energy) the proportion of total irradiance due to diffuse light in the plane of the array on a tracker system is around ________%.
+This cannot be true, since some diffuse light still shines on the module.  In Desert Center, CA (a location with a very low fraction of diffuse light energy relative to direct light energy) the proportion of total irradiance due to diffuse light in the plane of the array on a tracker system is around 18%.
 
 # Putting it all together
 
