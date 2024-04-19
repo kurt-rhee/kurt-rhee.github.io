@@ -39,11 +39,21 @@ Some rules to remember:
 
 - Voltage adds in series.
 - Current adds in parallel.
+- Current must be the same across components in series.
 - Diodes allow current to pass in one direction during normal operation.
 - Diodes allow current to pass in the opposite direction at high negative voltage.
+- Both PV cells and bypass diodes are modeled as diodes.
 
 ![Diode Curve]({{ site.url }}/assets/images/diode.png#center)
-**Figure 2:**  A general diode IV curve from LibreTexts [2]
+**Figure 2:**  A general diode IV curve from LibreTexts [1]
+
+Quoting Mark Mikofski here [2]:
+
+> The cells in a PV module can be considered roughly as a current source in parallel with a diode and some resistive elements. Diodes are semiconductors. In other words, they only conduct current in one direction, called the forward bias. When a negative voltage, or a reverse bias, is applied to the cell, the semiconductor won't conduct a current. However, if enough reverse bias is applied, all semiconductors will eventually breakdown, and carry a current. This phenomema is called reverse bias breakdown, and the breakdown voltage varies between cell technology. A typical front contact p-type silicon solar cell may breakdown at around -20 volts, while a back-contact n-type silicon solar cell may breakdown at -5 volts. There are many factors, beyond the scope of this primer, that affect reverse bias breakdown, such as purity of the substrate as well as type and concentration of dopant. The most important thing to understand about reverse bias breakdown is this:
+> When a cell is in reverse breakdown, it can carry nearly any current, but because the voltage is negative, then the cell will dissipate energy and will get hot as it exchanges heat with the environment around it.
+
+
+
 
 ### PV Systems Design
 
@@ -84,7 +94,8 @@ This cannot be true, since some diffuse light still shines on the module.  In De
 
 **Further reading:** 
 1. [Engineering Libre Texts:  Diode Primer](https://eng.libretexts.org/Bookshelves/Materials_Science/Supplemental_Modules_%28Materials_Science%29/Solar_Basics/A._Introductory_Physics_for_Solar_Application/II._Electricity/5._Diodes)
-2. [PVEducation:  IV Curve Primer](https://www.pveducation.org/pvcdrom/solar-cell-operation/iv-curve)
+2. [BreakingBytes by Mark Mikofski: Blog on Mismatch](https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html#electric-mismatch-in-silicon-cell-pv-is-not-intuitive)
+9. [PVEducation:  IV Curve Primer](https://www.pveducation.org/pvcdrom/solar-cell-operation/iv-curve)
 
 
 
