@@ -7,8 +7,8 @@ tags: [mismatch]
 ---
 
 
-![Solar Panels]({{ site.url }}/assets/images/solar-panels-retrotransposition.png#center)
-**Figure 1:**  A placeholder image, replace in final draft
+![Solar Panels]({{ site.url }}/assets/images/mismatch-headline-image#center)
+**Figure 1:**  Google's Gemini's creative-ish take on what shading electrical mismatch looks like.
 
 # Introduction
 
@@ -91,7 +91,7 @@ This cannot be true, since some diffuse light still shines on the module.  In De
 
 Starting from the very beginning:  What does an unshaded system's IV curve look like?
 
-![IV Curve Unshaded]({{ site.url }}/assets/images/iv-curve-unshaded.png)
+![IV Curve Unshaded]({{ site.url }}/assets/images/iv-curve-unshaded.png#center)
 **Figure 2** Unshaded curve made my Mark Mikofski using PVMismatch.
 
 What happens if we shade a single solar cell?  Since current is proportional to irradiance, current is decreased.  
