@@ -39,7 +39,7 @@ Some terminology:
 - Module:  A collection of electrically connected cells (generally 72 for utility scale plants)
 - Sub-Module:  a set of cells which are connected in series, and connected to other sub-modules in parallel (generally 3 sub-modules per module)
 
-In large utility scale solar power plants, many strings of module are generally connected to an inverter with a single maximum power point tracker (MPPT) or very few MPPTs relative to the number of strings. This point of common coupling will be 
+In large utility scale solar power plants, many strings of module are generally connected to an inverter with a single maximum power point tracker (MPPT) or very few MPPTs relative to the number of strings. This point of common coupling will be important later in the blog post.
 
 
 ### Electrical Engineering
@@ -58,12 +58,19 @@ Some rules to remember:
 ![Diode Curve]({{ site.url }}/assets/images/diode.png#center)
 **Figure 2:**  A general diode IV curve from LibreTexts [1]
 
+What is an IV curve?  It is a continuous curve which represents all of the possible output states that the solar string can operate at.  The lower limit at Isc represents the output if the string if the circuit is completed with an "element" of zero resistance.  The upper limit of Voc occurs if the string is completed with an infinite resistance.  Interested readers can refer to more information in [5].  A maximum power point tracker (MPPT) modulates the resistance between these two limits to find the maximum power point. 
+
 Quoting Mark Mikofski [2]:
 
 > The cells in a PV module can be considered roughly as a current source in parallel with a diode and some resistive elements. Diodes are semiconductors. In other words, they only conduct current in one direction, called the forward bias. When a negative voltage, or a reverse bias, is applied to the cell, the semiconductor won't conduct a current. However, if enough reverse bias is applied, all semiconductors will eventually breakdown, and carry a current. This phenomema is called reverse bias breakdown, and the breakdown voltage varies between cell technology. A typical front contact p-type silicon solar cell may breakdown at around -20 volts, while a back-contact n-type silicon solar cell may breakdown at -5 volts. There are many factors, beyond the scope of this primer, that affect reverse bias breakdown, such as purity of the substrate as well as type and concentration of dopant. The most important thing to understand about reverse bias breakdown is this:  When a cell is in reverse breakdown, it can carry nearly any current, but because the voltage is negative, then the cell will dissipate energy and will get hot as it exchanges heat with the environment around it.
 
-So why would a negative voltage be applied to a cell?  
+So why would a negative voltage be applied to a cell? Quoting PVEducation [3]:
 
+> If the operating current of the overall series string approaches the short-circuit current of the "bad" cell, the overall current becomes limited by the bad cell. The extra current produced by the good cells then forward biases the good solar cells. If the series string is short circuited, then the forward bias across all of these cells reverse biases the shaded cell. Hot-spot heating occurs when a large number of series connected cells cause a large reverse bias across the shaded cell, leading to large dissipation of power in the poor cell. Essentially the entire generating capacity of all the good cells is dissipated in the poor cell. The enormous power dissipation occurring in a small area results in local overheating, or "hot-spots", which in turn leads to destructive effects, such as cell or glass cracking, melting of solder or degradation of the solar cell.
+
+Bypass diodes allow this current that would otherwise flow throught the shaded solar cell to flow in an external circuit instead.  Quoting PVEducation again [4]:
+
+> A bypass diode is connected in parallel, but with opposite polarity... Under normal operation, each solar cell will be forward biased and therefore the bypass diode will be reverse biased and will effectively be an open circuit. However, if a solar cell is reverse biased due to a mismatch in short-circuit current between several series connected cells, then the bypass diode conducts, thereby allowing the current from the good solar cells to flow in the external circuit rather than forward biasing each good cell.
 
 
 ### Shading
@@ -82,9 +89,21 @@ This cannot be true, since some diffuse light still shines on the module.  In De
 
 ### Electrical Mismatch
 
-Starting from the very beginning.  What happens if we shade a single solar cell?  Since current is proportional to irradiance, current is decreased.  As long as the partial shade does not block the path of the electrons in the cell to the wires, the effect should have a roughly linear effect on power.
+Starting from the very beginning:  What does an unshaded system's IV curve look like?
 
-Now what happens if we connect this shaded cell to another unshaded cell in series?  
+![IV Curve Unshaded]({{ site.url }}/assets/images/iv-curve-unshaded.png)
+**Figure 2** Unshaded curve made my Mark Mikofski using PVMismatch.
+
+What happens if we shade a single solar cell?  Since current is proportional to irradiance, current is decreased.  
+
+Now what happens if we connect this shaded cell to another unshaded cell in series?  Then the string is limited by the Isc of the shaded solar cell and excess power is dissipated in the shaded cell. 
+
+Then if we connect these cells into a module and then this module into a string?  Well here is where things get tricky.  
+
+**Misconception:  Only current is affected in partial shading situations"
+
+
+
 
 
 
@@ -97,7 +116,10 @@ Now what happens if we connect this shaded cell to another unshaded cell in seri
 **Further reading:** 
 1. [Engineering Libre Texts:  Diode Primer](https://eng.libretexts.org/Bookshelves/Materials_Science/Supplemental_Modules_%28Materials_Science%29/Solar_Basics/A._Introductory_Physics_for_Solar_Application/II._Electricity/5._Diodes)
 2. [BreakingBytes by Mark Mikofski: Blog on Mismatch](https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html#electric-mismatch-in-silicon-cell-pv-is-not-intuitive)
-9. [PVEducation:  IV Curve Primer](https://www.pveducation.org/pvcdrom/solar-cell-operation/iv-curve)
+3. [PVEducation:  Hot Spots](https://www.pveducation.org/pvcdrom/modules-and-arrays/hot-spot-heating)
+4. [PVEducation:  Bypass Diodes](https://www.pveducation.org/pvcdrom/modules-and-arrays/bypass-diodes)
+5. [PVEducation:  IV Curve Primer](https://www.pveducation.org/pvcdrom/solar-cell-operation/iv-curve)
+6. [PVMimatch:  Python IV Curve Trace Simulator w/ Mismatch](https://github.com/SunPower/PVMismatch)
 
 
 
