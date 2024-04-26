@@ -12,7 +12,7 @@ tags: [mismatch]
 
 # Introduction
 
-Electrical mismatch due to non-uniform shading can be a confusing topic for both new and experienced PV performance modeling professionals.  The confusion likely arises from the multiple sources. For one, there are multiple concepts competing for the term "mismatch."  But, the main reason is that understanding electrical mismatch due to non-uniform shading requires building up layers of intuition from multiple fields including PV performance modeling, PV systems design, materials science, and electrical engineering.  In this joint(!) blog post, Mark Mikofski and I will guide you around some common misconceptions that arise when talking about electrical mismatch.
+Electrical mismatch due to non-uniform shading can be a confusing topic for both new and experienced PV performance modeling professionals.  The confusion likely arises from the multiple sources. A minor reason might be that there are multiple concepts competing for the term "mismatch."  The main reason is that understanding electrical mismatch due to non-uniform shading requires building up layers of intuition from multiple fields including PV performance modeling, PV systems design, materials science, and electrical engineering.  In this joint(!) blog post, Mark Mikofski and I will guide you around some common misconceptions that arise when talking about electrical mismatch due to non-uniform shading.
 
 # Definitions and Scope
 
@@ -44,7 +44,7 @@ In large utility scale solar power plants, many strings of module are generally 
 
 ### Electrical Engineering
 
-This blog post assumes that the reader has taken entry level electrical engineering curriculum at the university level, but that a refresher may be useful.
+This blog post assumes that the reader has taken entry level electrical engineering and materials science curriculum at the university level, but that a refresher may be useful.  Those with a need for a refresher on the material science of solar cells, including forward and reverse bias will find this video series informative [4].
 
 Some rules to remember:
 
@@ -70,13 +70,16 @@ So why would a negative voltage be applied to a cell? A cell that is shaded on i
 
 ![highlighted IV curve]({{ site.url }}/assets/images/current-source.png)
 
-In the orange region above it is true, the solar cell is behaving like a current source, and is providing a steady current at a range of different possible voltages.  In the blue region the cell behaves more like a voltage source which holds a steady voltage, but supplies a range of possible currents.  
+In the orange region above it is true, the solar cell is behaving like a current source, and is providing a steady current at a range of different possible voltages.  In the blue region the cell behaves more like a voltage source which holds a steady-ish voltage, but supplies a range of possible currents.  Here is an image comparing the output of a solar cell at different level of irradiance.
+
+![different levels of irradiance]({{ site.url }}/assets/images/levels-of-irradiance.png)
+
+The shaded solar cells shown above cannot provide 
 
 Quoting PVEducation [3]:
 
 > If the operating current of the overall series string approaches the short-circuit current of the "bad" cell, the overall current becomes limited by the bad cell. The extra current produced by the good cells then forward biases the good solar cells. If the series string is short circuited, then the forward bias across all of these cells reverse biases the shaded cell. Hot-spot heating occurs when a large number of series connected cells cause a large reverse bias across the shaded cell, leading to large dissipation of power in the poor cell. Essentially the entire generating capacity of all the good cells is dissipated in the poor cell. The enormous power dissipation occurring in a small area results in local overheating, or "hot-spots", which in turn leads to destructive effects, such as cell or glass cracking, melting of solder or degradation of the solar cell.
-
-Those with a need for a refresher on the material science of solar cells, including forward and reverse bias will find this video series informative [4]. Also  
+ Also  
 
 Bypass diodes allow this current that would otherwise flow throught the shaded solar cell to flow in an external circuit instead.  Quoting PVEducation again [5]:
 
