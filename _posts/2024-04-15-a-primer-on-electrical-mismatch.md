@@ -12,24 +12,20 @@ tags: [mismatch]
 
 # Introduction
 
-Electrical mismatch due to non-uniform shading can be a confusing topic for both new and experienced PV performance modeling professionals.  The confusion likely arises from the multiple sources. A minor reason might be that there are multiple concepts competing for the term "mismatch."  The main reason is that understanding electrical mismatch due to non-uniform shading requires building up layers of intuition from multiple fields including PV performance modeling, PV systems design, materials science, and electrical engineering.  In this joint(!) blog post, Mark Mikofski and I will guide you around some common misconceptions that arise when talking about electrical mismatch due to non-uniform shading.
+Electrical mismatch due to non-uniform shading can be a confusing topic for both new and experienced PV performance modeling professionals.  This is understandable since understanding mismatch requires building up layers of intuition from multiple fields including PV performance modeling, PV systems design, materials science, and electrical engineering.  In this joint(!) blog post, Mark Mikofski and I will guide you around some common misconceptions that arise when talking about electrical mismatch due to non-uniform shading.
 
-# Definitions and Scope
+**Misconception 1:  PV performance modelers enter a percentage value in their modeling software to model the effects of mismatch due to shading**
 
-### Electrical Mismatch due to Module Power Tolerance
+There are many different types of mismatch that can occur in an operating solar power plant.  For example, electrical mismatch due to non-uniform soiling, non-uniform snow soiling, non-uniform wire distances, etc.  Despite the myriad sources of mismatch that can occur, there are only two types of mismatch that people generally talk about in a PV performance model.  
 
-There are two types of mismatch that people generally talk about in a PV performance model.  The first type occurs when modules with difference efficiencies are included in the same string.  For example, a company may buy a set of 500W modules and install them in a string of 28 modules each.  If each of these modules actually performed at 500W at STC, there would be no mismatch, but in reality each will perform slightly differently due to differences in materials and manufacturing.  In order to reduce this effect, manufacturers bin their modules so that they come in a set where all modules in the set fall within a  given tolerance.  Using our 500W module example from before, the company may receive 10,000 modules all within a 500W to 505W bin.  Large PV projects may receive modules across multiple bins and must be careful to string modules with similar power bins together.  In a PV performance model, the distribution of actual power ratings is generally considered to be gaussian and the loss (or gain if the range of modules installed has a positive power bin) associated is generally a flat percentage across all time-steps.  This mismatch we will ignore in this blog post in favor of electrical mismatch due to non-uniform shading.
+The first type occurs when modules with difference efficiencies are included in the same string.  For example, a company may buy a set of 500W modules and install them in a string of 28 modules each.  If each of these modules actually performed at 500W at STC, there would be no mismatch, but in reality each will perform slightly differently due to differences in materials and manufacturing.  In order to reduce this effect, manufacturers bin their modules so that they come in a set where all modules in the set fall within a  given tolerance.  Using our 500W module example from before, the company may receive 10,000 modules all within a 500W to 505W bin.  Large PV projects may receive modules across multiple bins and must be careful to string modules with similar power bins together.  In a PV performance model, the distribution of actual power ratings is generally considered to be gaussian and the loss (or gain if the range of modules installed has a positive power bin) associated is generally a flat percentage across all time-steps.  This mismatch we will ignore in this blog post in favor of electrical mismatch due to non-uniform shading.
 
-### Electrical Mismatch due to Non-Uniform Shading
-
-The most discussed, debated, and probably misunderstood form of electrical mismatch is due to differences in the spatial distribution of irradiance that hits the surface of a module.  The rest of this blog post is dedicated to building up the necessary intuition to make sense of electrical mismatch losses due to partial shading in a performance model.
-
-### Other Types of Electrical Mismatch
-
-A quick aside, there are other types of electrical mismatch that can occur at an operating solar power plant.  For example, electrical mismatch due to non-uniform soiling and electrical mismatch due to non-uniform wire distances.  Electrical mismatch due to non-uniform soiling, for example snow soiling which can collect on certain parts of the module but not others.  Most performance modeling software do not yet consider losses due to these types of mismatch and require the users to implement an increased flat percentage loss instead.  We will ignore these sources of mismatch loss in this blog post for the sake of time.  
+The other type of mismatch loss occurs due to non-uniform shading.  This type of shading is generally modeled in conjuction with the performance modeling software shading model, and is not modeled as a flat loss.  The physical causes and intuition for all sources of mismatch are the same and learning about one source of mismatch is instructive in modeling the other sources as well.
 
 
 # Building up the Intuition
+
+Talking about mismatch can be difficult since everyone has a different level of understanding of each of the multitude of fields that underpin the effect.  The following few sections of the post are useful to level set for the many different types of engineers that may be reading this post.  Please feel free to skip any sections that you are already very familiar with.
 
 ### PV Systems Design
 
@@ -39,7 +35,7 @@ Some terminology:
 - Module:  A collection of electrically connected cells (generally 72 for utility scale plants)
 - Sub-Module:  A set of cells which are connected in series, and connected to other sub-modules in parallel (generally 3 sub-modules per module)
 
-In large utility scale solar power plants, many strings of module are generally connected to an inverter with a single maximum power point tracker (MPPT) or very few MPPTs relative to the number of strings. This point of common coupling will be important later in the blog post.
+In large utility scale solar power plants, many strings of module are generally connected to an inverter with a single maximum power point tracker (MPPT) or very few MPPTs relative to the number of strings. 
 
 
 ### Electrical Engineering
