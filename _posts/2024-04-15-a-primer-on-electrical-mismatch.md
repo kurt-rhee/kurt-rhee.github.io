@@ -12,30 +12,43 @@ tags: [mismatch]
 
 # Introduction
 
-Electrical mismatch due to non-uniform shading can be a confusing topic for both new and experienced PV performance modeling professionals.  This is understandable since understanding mismatch requires building up layers of intuition from multiple fields including PV performance modeling, PV systems design, materials science, and electrical engineering.  In this joint(!) blog post, Mark Mikofski and I will guide you around some common misconceptions that arise when talking about electrical mismatch due to non-uniform shading.
+Electrical mismatch due to non-uniform shading can be a confusing topic for both new and experienced PV performance modeling professionals.  This is understandable due to the fact that learning about mismatch requires building up layers of intuition from multiple fields including PV performance modeling, PV systems design, materials science, and electrical engineering.  In this joint(!) blog post, Mark Mikofski and I will guide you around some common misconceptions that arise when talking about electrical mismatch due to non-uniform shading.
 
 **Misconception 1:  PV performance modelers enter a percentage value in their modeling software to model the effects of mismatch due to shading**
 
 There are many different types of mismatch that can occur in an operating solar power plant.  For example, electrical mismatch due to non-uniform soiling, non-uniform snow soiling, non-uniform wire distances, etc.  Despite the myriad sources of mismatch that can occur, there are only two types of mismatch that people generally talk about in a PV performance model.  
 
-The first type occurs when modules with difference efficiencies are included in the same string.  For example, a company may buy a set of 500W modules and install them in a string of 28 modules each.  If each of these modules actually performed at 500W at STC, there would be no mismatch, but in reality each will perform slightly differently due to differences in materials and manufacturing.  In order to reduce this effect, manufacturers bin their modules so that they come in a set where all modules in the set fall within a  given tolerance.  Using our 500W module example from before, the company may receive 10,000 modules all within a 500W to 505W bin.  Large PV projects may receive modules across multiple bins and must be careful to string modules with similar power bins together.  In a PV performance model, the distribution of actual power ratings is generally considered to be gaussian and the loss (or gain if the range of modules installed has a positive power bin) associated is generally a flat percentage across all time-steps.  This mismatch we will ignore in this blog post in favor of electrical mismatch due to non-uniform shading.
+The first type occurs when modules with difference efficiencies are included in the same string.  For example, a company may buy a set of 500W modules and install them in a string of 28 modules each.  If each of these modules actually performed at 500W at STC, there would be no mismatch, but in reality each will perform slightly differently due to differences in materials and manufacturing.  In order to reduce this effect, manufacturers bin their modules so that they come in a set where all modules in the set fall within a  given tolerance.  Using our 500W module example from before, the company may receive 10,000 modules all within a 500W to 505W bin.  Large PV projects may receive modules across multiple bins and must be careful to string modules with similar power bins together.  In a PV performance model, the distribution of actual power ratings is generally considered to be gaussian and the loss (or gain if the range of modules installed has a positive power bin) associated is generally a flat percentage across all time-steps.  PV performance modelers calculate this value and use it as in input into their PV performance modeling software.  This mismatch we will ignore in this blog post in favor of electrical mismatch due to non-uniform shading.
 
-The other type of mismatch loss occurs due to non-uniform shading.  This type of shading is generally modeled in conjuction with the performance modeling software shading model, and is not modeled as a flat loss.  The physical causes and intuition for all sources of mismatch are the same and learning about one source of mismatch is instructive in modeling the other sources as well.
+The other type of mismatch loss that is calculated in a given performance modeling software occurs due to non-uniform shading.  This type of shading is generally modeled in conjuction with the performance modeling software's shading model, and is not modeled as a flat loss.  The physical causes and intuition for all sources of mismatch are the same and learning about one source of mismatch is instructive in modeling the other sources as well.
 
 
 # Building up the Intuition
 
-Talking about mismatch can be difficult since everyone has a different level of understanding of each of the multitude of fields that underpin the effect.  The following few sections of the post are useful to level set for the many different types of engineers that may be reading this post.  Please feel free to skip any sections that you are already very familiar with.
+Talking about mismatch can be difficult since every engineer has a different level of understanding of each of the multitude of fields that underpin the effect.  Very few undergraduate programs feature coursework in PV performance modeling, and new-comers to the field usually come familiar with one of the following fields, but not all of them (electrical engineering, mechanical engineering, chemical engineering, materials science, structural engineering, physics, etc.).  The following few sections of the post are useful to level set for the many different types of engineers that may be reading this post, though please feel free to skip any sections that you are already very familiar with.
 
 ### PV Systems Design
 
 Some terminology:
 
-- Cell:  For the purposes of this blog post, silicon doped to create a PN junction and separated by other cells by wires.
+- Cell:  For the purposes of this blog post, silicon doped to create a PN junction and separated from other cells by wires.
 - Module:  A collection of electrically connected cells (generally 72 for utility scale plants)
-- Sub-Module:  A set of cells which are connected in series, and connected to other sub-modules in parallel (generally 3 sub-modules per module)
+- Sub-Module:  A set of cells which are connected in series, and connected to a bypass diode in parallel.  Sub-modules are connected to each other in series.
 
 In large utility scale solar power plants, many strings of module are generally connected to an inverter with a single maximum power point tracker (MPPT) or very few MPPTs relative to the number of strings. 
+
+
+### Shading
+
+In a photovoltaic performance models, there are 3 different types of irradiance that hit the front side of a solar module:  beam, diffuse and ground reflected.  For now we will ignore the circumsolar portion (which generally gets bucketed into either the beam or diffuse portions), as well as the ground reflected irradiance which is generally considered to have an isotropic-ish effect much like the diffuse portion.  
+
+Beam irradiance is the most intuitive of the irradiance types and can be thought of as light which takes a direct (straight vector) path from the sun to the solar module.  Beam irradiance can be blocked by any object that sits between an object and the straight vector pointing to the sun position.  Blocking objects may include trees, buildings, or other solar modules.  
+
+Diffuse irradiance on the other hand is less intuitive and encapsulates all of the light that hits a module, that does not take a direct line from the sun.  For example, a photon may bounce off of the ground, then a molecule in the atmosphere, and then be directed towards the module (horizon brightening).  The cumulative effect of many photons all taking circuitous paths to the module results in a "diffuse dome" of irradiance which can be integrated to determine how much diffuse light is hitting the module.  It is this diffuse irradiance which makes it so that if so that objects in shade are still visible.  It is also the reason that the following misconception can be debunked.
+
+**Misconception 2:  As soon as a module is shaded, production goes to zero**
+
+This cannot be true, since some diffuse light still shines on the module.  In Desert Center, CA (a location with a very low fraction of diffuse light energy relative to direct light energy) the proportion of total irradiance due to diffuse light in the plane of the array on a tracker system is around 18%.
 
 
 ### Electrical Engineering
@@ -46,7 +59,8 @@ Some rules to remember:
 
 - Voltage adds in series.
 - Current adds in parallel.
-- Current must be the same across components in series.
+- Current into and out of a node must sum to zero.
+- Voltage in a loop must sum to zero
 - Diodes allow current to pass in one direction during normal operation.
 - Diodes allow current to pass in the opposite direction at a threshold negative voltage.
 - Both PV cells and bypass diodes are modeled as diodes.
@@ -62,7 +76,7 @@ Quoting Mark Mikofski [2]:
 
 > The cells in a PV module can be considered roughly as a current source in parallel with a diode and some resistive elements. Diodes are semiconductors. In other words, they only conduct current in one direction, called the forward bias. When a negative voltage, or a reverse bias, is applied to the cell, the semiconductor won't conduct a current. However, if enough reverse bias is applied, all semiconductors will eventually breakdown, and carry a current. This phenomema is called reverse bias breakdown, and the breakdown voltage varies between cell technology. A typical front contact p-type silicon solar cell may breakdown at around -20 volts, while a back-contact n-type silicon solar cell may breakdown at -5 volts. There are many factors, beyond the scope of this primer, that affect reverse bias breakdown, such as purity of the substrate as well as type and concentration of dopant. The most important thing to understand about reverse bias breakdown is this:  When a cell is in reverse breakdown, it can carry nearly any current, but because the voltage is negative, then the cell will dissipate energy and will get hot as it exchanges heat with the environment around it.
 
-So why would a negative voltage be applied to a cell? A cell that is shaded on its own does not enter reverse bias.  Neither does a cell which is in a string with similarly shaded cells.  Therefore if  reverse bias occurs then there must be a mismatch in the current and voltage characteristics in one of the cells of the string relative to the others.  Why does this mismatch cause a reverse bias?  Well, lets closely examine what we said earlier when we stated that the cells in a module can be "roughly" considered as a current source.  
+So why would a negative voltage be applied to a cell? A cell that is shaded on its own does not enter reverse bias.  Neither does a cell which is in a string with similarly shaded cells.  Therefore in order for reverse bias to occur there must be a mismatch in the current and voltage characteristics in one of the cells of the string relative to the others.  Why does this mismatch cause a reverse bias?  Well, lets closely examine what we said earlier when we stated that the cells in a module can be "roughly" considered as a current source.  
 
 ![highlighted IV curve]({{ site.url }}/assets/images/current-source.png)
 
@@ -70,7 +84,7 @@ In the orange region above it is true, the solar cell is behaving like a current
 
 ![different levels of irradiance]({{ site.url }}/assets/images/levels-of-irradiance.png)
 
-The shaded solar cells shown above cannot provide 
+A shaded solar cell cannot, on its own, provide the same level of current and voltage as its unshaded counter-parts.  As an example, lets say that in a series string of 10 1V cells that 9 are unshaded and 1 is shaded.  These cells are connected into a circuit over a resistive load with a non-zero, non-infinite resistance. The 9 unshaded cells are experiencing forward bias due to the light hitting them, creating a potential of 9V.  Kirchoff's voltage law (voltage in a loop must sum to zero) then forces a ~ -9V potential across the shaded cell and the resistive load.  This is the source of the reverse-bias.  
 
 Quoting PVEducation [3]:
 
@@ -81,18 +95,6 @@ Bypass diodes allow this current that would otherwise flow throught the shaded s
 
 > A bypass diode is connected in parallel, but with opposite polarity... Under normal operation, each solar cell will be forward biased and therefore the bypass diode will be reverse biased and will effectively be an open circuit. However, if a solar cell is reverse biased due to a mismatch in short-circuit current between several series connected cells, then the bypass diode conducts, thereby allowing the current from the good solar cells to flow in the external circuit rather than forward biasing each good cell.
 
-
-### Shading
-
-In a photovoltaic performance models, there are 3 different types of irradiance that hit the front side of a solar module:  beam, diffuse and ground reflected.  For now we will ignore the circumsolar portion (which generally gets bucketed into either the beam or diffuse portions), as well as the ground reflected irradiance which is generally considered to have an isotropic-ish effect much like the diffuse portion.  
-
-Beam irradiance is the most intuitive of the irradiance types and can be thought of as light which takes a direct (straight vector) path from the sun to the solar module.  Beam irradiance can be blocked by any object that sits between an object and the straight vector pointing to the sun position.  Blocking objects may include trees, buildings, or other solar modules.  
-
-Diffuse irradiance on the other hand is less intuitive and encapsulates all of the light that hits a module, that does not take a direct line from the sun.  For example, a photon may bounce off of the ground, then a molecule in the atmosphere, and then be directed towards the module (horizon brightening).  The cumulative effect of many photons all taking circuitous paths to the module results in a "diffuse dome" of irradiance which can be integrated to determine how much diffuse light is hitting the module.  It is this diffuse irradiance which makes it so that if so that objects in shade are still visible.  It is also the reason that our first misconception can be debunked.
-
-**Misconception:  As soon as a module is shaded, production goes to zero**
-
-This cannot be true, since some diffuse light still shines on the module.  In Desert Center, CA (a location with a very low fraction of diffuse light energy relative to direct light energy) the proportion of total irradiance due to diffuse light in the plane of the array on a tracker system is around 18%.
 
 # Putting it all together
 
@@ -109,7 +111,7 @@ Now what happens if we connect this shaded cell to another unshaded cell in seri
 
 Then if we connect these cells into a module and then this module into a string?  Well here is where things get tricky.  
 
-**Misconception:  Only current is affected in partial shading situations"
+**Misconception 3:  Only current is affected in partial shading situations"
 
 
 
