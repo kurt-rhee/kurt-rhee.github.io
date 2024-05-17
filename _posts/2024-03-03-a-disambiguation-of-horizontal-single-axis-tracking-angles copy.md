@@ -36,6 +36,7 @@ I am a former employee of Nevados Engineering which makes terrain following trac
 - **Cross-Axis Slope**:  The slope of the ground perpendicular to the torque tube direction.
 - **Tracker Azimuth Angle**:  The direction of the torque tube.  By convention the torque tube points towards the equator.
 - **Rotation Angle**:  Angle about the torque tube.  By convention the angle follow the right hand rule where the thumb points in the same direction as the tracker azimuth angle.
+- **Transposed Irradiance**:  Transposed irradiance (Global Transposed Irradiance:  GTI) (Global Plane of Array Irradiance:  GPOA) is the amount of irradiance that would hit the front side of a solar panel without considering the effects of row to row shading, horizon shading, incidence angle losses, spectral correction, etc.
 
 # 1. Astronomical Tracking AKA True Tracking
 
