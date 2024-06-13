@@ -24,6 +24,10 @@ If you are not familiar with Git and Github it might be a daunting task to contr
 # Things you should know before embarking
 - Python:  Pvlib is a python software project.
 - Pandas:  Pvlib makes heavy use of the pandas library.
+- Pvlib Contribution Page:  https://pvlib-python.readthedocs.io/en/stable/contributing.html 
+- Flake8:  Pvlib uses the PEP8 style for code formatting.  I like to have an automatic check to make sure my code
+fits whichever formatting style the project I am contributing to likes.  In this case I use the Flake8 extension
+which you can add to VSCode (my integrated development environment (IDE)) via extension.
 
 # Github Account
 
@@ -60,7 +64,7 @@ Once you have an account on github, you will want to create a fork for the pvlib
 
 # Creating a new function in pvlib
 
--  Once you have a copy of pvlib on your computer you will want to open it up in an Integrated Development Environment (IDE).  I personally use VSCode since I also work in other programming language such as Rust and C#, but alternatives like Pycharm should work fine as well.
+-  Once you have a copy of pvlib on your computer you will want to open it up in an Integrated Development Environment (IDE).  I personally use VSCode since I also work in other programming language such as Rust and C#, but alternatives like Pycharm should work fine as well.  You could also do this entire workflow using github desktop, or the github command line interface (CLI).  I won't discuss those workflows here, but feel free to use whichever workflow feels most productive for you.
 
 -   Let's create a new .py file which will hold our new function inside of the pvlib/pvlib folder where all of the rest of the functions are.  Notice in the screenshot below that the pvlib folder has turned green and the transformer.py file has been created.  Also notice that the git symbol (the branching graph) has incremented to 1 since we have made changes to 1 file.
 
@@ -89,7 +93,7 @@ Once you have an account on github, you will want to create a fork for the pvlib
 ![alt text]({{ site.url }}/assets/images/commit-test.png)
 
 
-# Creating a Pull Request
+# Creating a Pull Request (PR)
 
 - A pull request is a request for the maintainers to take a look at your code and maybe pull that code into the main branch.  Click on "Pull requests" and then click on the green "New pull request" button.
 
@@ -105,10 +109,13 @@ Once you have an account on github, you will want to create a fork for the pvlib
 ![alt text]({{ site.url }}/assets/images/create-pull-request-2.png)
 
 
+# Waiting for Comments
 
+- Now all you have to do is wait for comments from the maintainers.  In software development, PR's are a chance to
+catch mistakes, give guidance, and also discuss.  I like to think of it as free education from some of the
+best performance modelers in the industry.  
 
+- Once all of the necessary edits are made, the maintainers will merge the PR into the PVLIB main branch
+and your code will become a part of the library for everyone to use!
 
-
-**Further reading:** 
-- [GTI Driesse](https://www.sciencedirect.com/science/article/pii/S0038092X23007272)
 
