@@ -8,7 +8,7 @@ tags: [pvlib]
 
 
 ![Solar Panels]({{ site.url }}/assets/images/pvlib.png#center)
-**Figure 2:**  PVLIB
+**Figure 1:**  PVLIB
 
 # Introduction
 
