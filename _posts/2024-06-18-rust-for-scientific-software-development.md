@@ -35,7 +35,7 @@ Scripts in general are programs that are written more than they are run.  Enterp
 
 ## Why doesn't everyone use python?
 
-The features of python that make it such a strong scripting language make it a weak choice for enterprise software development.  PVSyst (object pascal), SolarFarmer (C#), System Advisor Model (C++) and PVDesign (Java) have all chosen to write their software in a language other than Python, even though the open source pvlib-python exists, not because they don't know about the library.  On the contrary, many of those software companies employ people who are contributors or even maintainers of pvlib.  Those software comopanies chose a non-scripting language, becuase like physical engineering, software engineering requires practitioners to make deep trade-off decisions regarding the tools of their craft.  Each of these companies chose to trade the ease of use and head start they would gain from choosing python for the long term benefits that another programming language would bring.
+The features of python that make it such a strong scripting language make it a weak choice for enterprise software development.  Photovoltaic software (my domain) companies such as PVSyst (object pascal), SolarFarmer (C#), System Advisor Model (C++) and PVDesign (Java) have all chosen to write their software in a language other than Python, even though the open source pvlib-python exists, not because they don't know about the library.  On the contrary, many of those software companies employ people who are contributors or even maintainers of pvlib.  Those software companies chose a non-scripting language, because like physical engineering, software engineering requires practitioners to make deep trade-off decisions regarding the tools of their craft.  Each of these companies chose to trade the ease of use and head start they would gain from choosing python, for the long term benefits that another programming language would bring.
 
 ## Distinguising Scripting, General Purpose, and Systems Languages
 
@@ -43,30 +43,30 @@ The features of python that make it such a strong scripting language make it a w
  * **General Purpose Languages**:  Java, C#, Go
  * **Systems Languages**: C, C++, Rust
 
- As you go "closer to the metal" from scripting languages to general purpose languages, to systems languages, the more software development knowledge you must obtain to be productive.  Scripting languages abstract away concepts like "types" and you don't even really need to know much about things like "classes".  General purpose languages abstract away memory management techniques and concepts such as the "heap" and the "stack".  Systems languages give you near full control of the computer, and with that the opportunity to create truly fast software.  But with great power comes great responsibility.  Historically, software developers have wielded this power clumsily, creating security holes and very hard to fix bugs in programs written using systems programming languages.
+ As you get "closer to the metal" from scripting languages to general purpose languages, to systems languages, the more software development knowledge you must obtain to be productive.  Scripting languages abstract away concepts like "types" and you don't even really need to know much about things like "classes".  General purpose languages abstract away memory management techniques and concepts such as the "heap" and the "stack".  Systems languages give you even more control over the computer, and with that the opportunity to create truly fast software.  But with great power comes great responsibility.  Historically, software developers have wielded this power clumsily, creating security holes and very hard to fix bugs in programs written using systems programming languages.
 
- Systems programming languages have long been out of reach for scientific subject matter experts for this reason.   If professional software developers have historically not been able to use these languages correctly, how would domain programmers who must split their attention between their particular domain and software development do so?
+ Systems programming languages have long been out of reach for scientific subject matter experts for this reason.   If professional software developers have historically not been able to use these languages correctly, how would domain programmers (who must split their attention between their particular domain and software development) do so?
 
- # Rust
+# Rust
 
- ## Speed Comparison
+## Speed Comparison
 
- Rust I believe, brings the dream of systems software development closer than ever to attainability for subject matter experts.  At a high level, Rust's compiler reads through your code and ensures that no memory management errors have been introduced.  I like to think of the language as a sort of jet engine with training wheels attached.  The training wheels help you to program with confidence while piloting one of the fastest programming languages available to modern developers.
+Rust I believe, brings the dream of systems software development closer than ever to attainability for subject matter experts.  At a high level, Rust's compiler reads through your code and ensures that no memory management errors have been introduced.  I like to think of the language as a sort of jet engine with training wheels attached.  The training wheels help you to program with confidence while piloting one of the fastest programming languages available to modern developers.
 
- For example, here is a time trial of the NREL 2008 solar position algorithm written in Rust vs calling pvlib python for 1 year of hourly data on my computer.
+For example, here is a time trial of the NREL 2008 solar position algorithm written in Rust vs calling pvlib python for 1 year of hourly data on my computer.
 
 #### Rust calling into a custom nrel_2008 function
 ```
-    let (azimuth_series, zenith_series) = match model {
-        SolarPositionModel::NREL2008 => inputs
-            .map(|(time_step, t_amb)| {
-                nrel_2008(time_step, latitude, longitude, elevation, &pressure, t_amb)
-            })
-            .collect(),
-        SolarPositionModel::FutureModel => {
-            panic!("No solar position model exists for this model choice yet, please use NREL2008")
-        }
-    };
+let (azimuth_series, zenith_series) = match model {
+    SolarPositionModel::NREL2008 => inputs
+        .map(|(time_step, t_amb)| {
+            nrel_2008(time_step, latitude, longitude, elevation, &pressure, t_amb)
+        })
+        .collect(),
+    SolarPositionModel::FutureModel => {
+        panic!("No solar position model exists for this model choice yet, please use NREL2008")
+    }
+};
 ```
 
 #### Python calling into pvlib
@@ -97,21 +97,21 @@ for model in models:
 ```
 
 
- * **Rust**:  12 milliseconds
- * **pvlib (numpy)**: 26 milliseconds
- * **pvlib (numba)**: 2491 milliseconds
+* **Rust**:  12 milliseconds
+* **pvlib (numpy)**: 26 milliseconds
+* **pvlib (numba)**: 2491 milliseconds
 
- Why does Rust go faster than pvlib, even though pvlib is calling out to C via the numpy library?  One guess could be that pvlib has to coerce python types to C types.  Another could be that not all of the SPA algorithm code fit neatly into numpy's strict array-like programming model.
+Why does Rust go faster than pvlib, even though pvlib is calling out to C via the numpy library?  One guess could be that pvlib has to coerce python types to C types.  Another could be that not all of the SPA algorithm code fit neatly into numpy's strict array-like programming model.
 
- ## Correctness
+## Correctness
 
- Training wheels are a core part of Rust's philosophy, and while the memory management training wheels are semi-mandatory (they can be opt-out in specific "unsafe" blocks), the language gives you many ways to use training wheels to your advantage in other parts of the code.  
+Training wheels are a core part of Rust's philosophy, and while the memory management training wheels are semi-mandatory (they can be opt-out in specific "unsafe" blocks), the language gives you many ways to use training wheels to your advantage in other parts of the code.  
 
- Writing enterprise software is hard.  There are many more ways to write bad software than there are to write good software, and bad software is much easier and quicker to write than good software.  All commercial software projects ironically have strong incentives for writing bad software.  Upcoming deadlines, endless feature additions, churn of software developers all push projects away from best practices.
- 
- Good software is easy to understand, and hard to make mistakes with.  Good software is as simple as possible without being any simpler.  Rust gives you the tools to eliminate some of many doorways to badly written software, and these tools are probably what makes Rust Stackoverflow's most loved language 8 years in a row.
+Writing enterprise software is hard.  There are many more ways to write bad software than there are to write good software, and bad software is much easier and quicker to write than good software.  All commercial software projects ironically have strong incentives for writing bad software.  Upcoming deadlines, endless feature additions, churn of software developers all push projects away from best practices.
 
- One of the hardest parts of writing enterprise scientific software, is communicating between domain experts and professional software developers.  Software developers have no incentive to learn the domain that they are writing software for, since they can move to a different company in a totally different domain at any time.  Domain experts are incentivized to learn software development, but often cannot spend enough time doing it that they become software development experts as well.
+Good software is easy to understand, and hard to make mistakes with.  Good software is as simple as possible without being any simpler.  Rust gives you the tools to eliminate some of many doorways to badly written software, and these tools are probably what makes Rust Stackoverflow's most loved language 8 years in a row.
+
+One of the hardest parts of writing enterprise scientific software, is communicating between domain experts and professional software developers.  Software developers have no incentive to learn the domain that they are writing software for, since they can move to a different company in a totally different domain at any time.  Domain experts are incentivized to learn software development, but often cannot spend enough time doing it that they become software development experts as well.
 
 Here is just one of many things that Rust allows you to do to make sure that domain experts and software developers communicate correctly in the code base.  
 
@@ -120,7 +120,7 @@ Here is an enumeration in Rust.  Enums are algebraic data types, meaning you can
 ```
 /// Pressure in mbar
 pub enum Pressure {
-    MilliBar(f32),
+MilliBar(f32),
 }
 ```
 
