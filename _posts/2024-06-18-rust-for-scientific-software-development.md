@@ -80,26 +80,26 @@ times = pd.date_range(
     freq='1h'
     )
 
-models = ['nrel_numpy', 'nrel_numba']
-
-for model in models:
-    start = time.time()
-    spa = pvlib.solarposition.get_solarposition(
-        time=times,
-        latitude=33.2,
-        longitude=-117.35,
-        altitude=200,
-        temperature=12.0,
-        method=model
-    )
-    duration = round((time.time() - start) * 1000, 2)
-    print(f"{model}: {duration} ms")
+start = time.time()
+spa = pvlib.solarposition.get_solarposition(
+    time=times,
+    latitude=33.2,
+    longitude=-117.35,
+    altitude=200,
+    temperature=12.0,
+    method="nrel_numpy"
+)
+duration = round((time.time() - start) * 1000, 2)
+print(f"{model}: {duration} ms")
 ```
 
 
-* **Rust**:  12 milliseconds
-* **pvlib (numpy)**: 26 milliseconds
-* **pvlib (numba)**: 2491 milliseconds
+* **Rust**:  ~12 milliseconds
+* **pvlib (numpy)**: ~26 milliseconds
+
+
+### Caveat
+By no means is this a scientific benchmarking test of the two functions.  Function run time is dependent on a host of factor including operating system load, state of the CPU cache, etc.  This test is meant to be indicative only.  The calculation of the solar position is also not the bottleneck in run speed for a photovoltaic performance model which computes 3D shading, but there have been some discussions (https://github.com/pvlib/pvlib-python/issues/1906) about potentially speeding it up.
 
 Why does Rust go faster than pvlib, even though pvlib is calling out to C via the numpy library?  One guess could be that pvlib has to coerce python types to C types.  Another could be that not all of the SPA algorithm code fit neatly into numpy's strict array-like programming model.
 
