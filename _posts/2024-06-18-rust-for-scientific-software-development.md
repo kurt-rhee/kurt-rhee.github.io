@@ -7,7 +7,7 @@ tags: [pvlib]
 ---
 
 
-![Solar Panels]({{ site.url }}/assets/images/rust_and_python.png#center)
+![Rust and Python]({{ site.url }}/assets/images/rust_and_python.png#center)
 **Figure 1:**  Ferris and Python hanging out
 
 # Introduction
