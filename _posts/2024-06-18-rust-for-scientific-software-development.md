@@ -17,14 +17,14 @@ It is flexible, has a huge ecosystem of libraries just one `pip install` away an
 allows people who care about science to do science without having to also become
 experts in software development.
 
-In a world where humans have limited lifespands and also enjoy activities that don't involve staring for hours at a computer screen, python is an amazing tool that undeservedly gets maligned by professional software developers who don't see the utility of scripting languages, because they themselves don't write scripts.
+In a world where humans have limited lifespans and also enjoy activities that don't involve staring for hours at a computer screen, python is an amazing tool that undeservedly gets maligned by professional software developers who don't see the utility of scripting languages, because they themselves don't write scripts.
 
 ## Too Long Didn't Read
 I am a software developer who has written enterprise software in Python, C# and Rust.  I believe that the execution speed and developer experience of Rust makes it a good choice over Python for enterprise software, especially if that software has a complex domain. I believe that the marginal learning required to use Rust over C# is outweighed by those same benefits.  I believe that Rust's memory management strategies are easy enough for non-professional software developers to understand and write correctly.
 
 ## Distinguishing Scripting Languages from Non-Scripting Languages
 
-Scripts in general are programs that are written more than they are run.  Enterprise software on the other hand is written more than it is written.
+Scripts in general are programs that are written more than they are run.  Enterprise software on the other hand is read/run more than it is written.
 
 | Scripts | Enterprise Software |
 |---------|---------------------|
