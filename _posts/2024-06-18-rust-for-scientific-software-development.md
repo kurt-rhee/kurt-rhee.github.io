@@ -37,7 +37,7 @@ Scripts in general are programs that are written more than they are run.  Enterp
 
 The features of python that make it such a strong scripting language make it a weak choice for enterprise software development.  Photovoltaic software (my domain) companies such as PVSyst (object pascal), SolarFarmer (C#), System Advisor Model (C++) and PVDesign (Java) have all chosen to write their software in a language other than Python, even though the open source pvlib-python exists, not because they don't know about the library.  On the contrary, many of those software companies employ people who are contributors or even maintainers of pvlib.  Those software companies chose a non-scripting language, because like physical engineering, software engineering requires practitioners to make deep trade-off decisions regarding the tools of their craft.  Each of these companies chose to trade the ease of use and head start they would gain from choosing python, for the long term benefits that another programming language would bring.
 
-## Distinguising Scripting, General Purpose, and Systems Languages
+## Distinguishing Scripting, General Purpose, and Systems Languages
 
  * **Scripting Languages**:  Python, R, Matlab
  * **General Purpose Languages**:  Java, C#, Go
@@ -71,9 +71,6 @@ let (azimuth_series, zenith_series) = match model {
 
 #### Python calling into pvlib
 ```
-
-# pandas DatetimeIndex from 2022-01-01 00:00:00 to 2022-01-01 23:00:00
-# with 1-hourly resolution
 times = pd.date_range(
     '2022-01-01 00:00:00-08:00',
     '2022-12-31 23:00:00-08:00',
@@ -99,13 +96,13 @@ print(f"{model}: {duration} ms")
 
 
 ### Caveat
-By no means is this a scientific benchmarking test of the two functions.  Function run time is dependent on a host of factor including operating system load, state of the CPU cache, etc.  This test is meant to be indicative only.  The calculation of the solar position is also not the bottleneck in run speed for a photovoltaic performance model which computes 3D shading, but there have been some discussions (https://github.com/pvlib/pvlib-python/issues/1906) about potentially speeding it up.
+By no means is this a scientific benchmarking test of the two functions.  Function run time is dependent on a host of factors including operating system load, state of the CPU cache, etc.  This test is meant to be indicative only.  The calculation of the solar position is also not the bottleneck in run speed for a photovoltaic performance model which computes 3D shading, but there have been some discussions (https://github.com/pvlib/pvlib-python/issues/1906) about potentially speeding it up.
 
-Why does Rust go faster than pvlib, even though pvlib is calling out to C via the numpy library?  One guess could be that pvlib has to coerce python types to C types.  Another could be that not all of the SPA algorithm code fit neatly into numpy's strict array-like programming model.
+Why does Rust go faster than pvlib, even though pvlib is calling out to C via the numpy library?  One guess could be that pvlib has to coerce python types to C types.  Another could be that not all of the SPA algorithm code fits neatly into numpy's strict array-like programming model.
 
 ## Correctness
 
-Training wheels are a core part of Rust's philosophy, and while the memory management training wheels are semi-mandatory (they can be opt-out in specific "unsafe" blocks), the language gives you many ways to use training wheels to your advantage in other parts of the code.  
+Training wheels are a core part of Rust's philosophy, and while the memory management training wheels are semi-mandatory (they can be opt-out in specific "unsafe" blocks), the language gives you many ways to use training wheels to your advantage in other parts of the code.
 
 Writing enterprise software is hard.  There are many more ways to write bad software than there are to write good software, and bad software is much easier and quicker to write than good software.  All commercial software projects ironically have strong incentives for writing bad software.  Upcoming deadlines, endless feature additions, churn of software developers all push projects away from best practices.
 
@@ -113,9 +110,9 @@ Good software is easy to understand, and hard to make mistakes with.  Good softw
 
 One of the hardest parts of writing enterprise scientific software, is communicating between domain experts and professional software developers.  Software developers have no incentive to learn the domain that they are writing software for, since they can move to a different company in a totally different domain at any time.  Domain experts are incentivized to learn software development, but often cannot spend enough time doing it that they become software development experts as well.
 
-Here is just one of many things that Rust allows you to do to make sure that domain experts and software developers communicate correctly in the code base.  
+Here is just one of many things that Rust allows you to do to make sure that domain experts and software developers communicate correctly in the code base.
 
-Here is an enumeration in Rust.  Enums are algebraic data types, meaning you can mix different types inside of them.  This enum, named `Pressure` has one variant named `MilliBar` which is a unit type of `f32`, meaning it is a named wrapper around the real `f32` type. 
+Here is an enumeration in Rust.  Enums are algebraic data types, meaning you can mix different types inside of them.  This enum, named `Pressure` has one variant named `MilliBar` which is a unit type of `f32`, meaning it is a named wrapper around the real `f32` type.
 
 ```
 /// Pressure in mbar
@@ -144,8 +141,6 @@ Notice that this method takes another enum called `Elevation`.  Because it is an
 
 # Conclusion
 
-Overall the fundamental trade-offs between Rust and Python are simple.  Rust is slower to write, but runs fast and encourages correctness.  It feels like building a structure with stone.  Python is quick to write, but runs slowly and encourages experiementation.  It feels like building with plywood.
+Overall the fundamental trade-offs between Rust and Python are simple.  Rust is slower to write, but runs fast and encourages correctness.  It feels like building a structure with stone.  Python is quick to write, but runs slowly and encourages experimentation.  It feels like building with plywood.
 
-If experimentation or prototyping are your goals, use Python.  If reducing maintenance burden, or increasing speed are you goals use Rust.  Some may argue that building with stone is better than building with plywood, but a good architect knows when and how to use both.
-
-
+If experimentation or prototyping are your goals, use Python.  If reducing maintenance burden, or increasing speed are your goals, use Rust.  Some may argue that building with stone is better than building with plywood, but a good architect knows when and how to use both.
