@@ -1,8 +1,8 @@
 ---
 layout: post
-title: A Primer on Electrical Mismatch DRAFT
+title: A Primer on Electrical Mismatch
 description: Blog
-summary: A Primer on Electrical Mismatch DRAFT
+summary: A Primer on Electrical Mismatch
 tags: [mismatch]
 ---
 
@@ -16,7 +16,7 @@ Electrical mismatch due to non-uniform shading can be a confusing topic for both
 
 **Misconception 1:  PV performance modelers enter a percentage value in their modeling software to model the effects of mismatch due to shading**
 
-There are many different causes of mismatch that can occur in an operating solar power plant.  For example, electrical mismatch due to non-uniform shading, non-uniform dust & snow soiling, non-uniform wire distances, etc.  Despite the myriad sources of mismatch that can occur, there are only two types of mismatch that people generally talk about in a PV performance model.
+The reality is that there are many different causes of mismatch that can occur in an operating solar power plant.  For example, electrical mismatch due to non-uniform shading, non-uniform dust & snow soiling, non-uniform wire distances, etc.  This misconception arises because **array level mismatch** is often modeled as a percentage in module quality, but **electrical mismatch due to shade** is never modeled in module quality.
 
 ## Array level mismatch
 
@@ -34,6 +34,7 @@ The physical causes and intuition for all sources of mismatch are the same and l
 
 2. Row to row mismatch is governed by the fraction of modules shaded, which is constant for all modules in the string.  It generally looks like the image below.
 ![InterRow Shading]({{ site.url }}/assets/images/inter-row-shading.png#center)
+**Figure 2:** InterRow Shading.
 
 3. Non-uniform shade is characterised by the number of parallel strings the shadow crosses (generally orthogonal to row to row shade).
 
@@ -53,17 +54,18 @@ Some terminology:
 In large utility scale solar power plants, many strings of module are generally connected to an inverter with a single maximum power point tracker (MPPT) or very few MPPTs relative to the number of strings.
 
 
-### Shading
+**Misconception 2:  As soon as a module is shaded, production goes to zero**
 
-In a photovoltaic performance models, there are 3 different types of irradiance that hit the front side of a solar module:  beam, diffuse and ground reflected.  For now we will ignore the circumsolar portion (which generally gets bucketed into either the beam or diffuse portions), as well as the ground reflected irradiance which is generally considered to have an isotropic-ish effect much like the diffuse portion.
+I have heard this misconception quite a bit, especially when working in the residential sector.  In a photovoltaic performance models, there are 3 different types of irradiance that hit the front side of a solar module:  beam, diffuse and ground reflected.  For now we will ignore the circumsolar portion (which generally gets bucketed into either the beam or diffuse portions), as well as the ground reflected irradiance which is generally considered to have an isotropic-ish effect much like the diffuse portion.
 
 Beam irradiance is the most intuitive of the irradiance types and can be thought of as light which takes a direct (straight vector) path from the sun to the solar module.  Beam irradiance can be blocked by any object that sits between an object and the straight vector pointing to the sun position.  Blocking objects may include trees, buildings, or other solar modules.
 
-Diffuse irradiance on the other hand is less intuitive and encapsulates all of the light that hits a module, that does not take a direct line from the sun.  For example, a photon may bounce off of the ground, then a molecule in the atmosphere, and then be directed towards the module (horizon brightening).  The cumulative effect of many photons all taking circuitous paths to the module results in a "diffuse dome" of irradiance which can be integrated to determine how much diffuse light is hitting the module.  It is this diffuse irradiance which makes it so that if so that objects in shade are still visible.  It is also the reason that the following misconception can be debunked.
+Diffuse irradiance on the other hand is less intuitive and encapsulates all of the light that hits a module, but does not take a direct line from the sun.  For example, a photon may bounce off of the ground, then a molecule in the atmosphere, and then be directed towards the module (horizon brightening).  The cumulative effect of many photons all taking circuitous paths to the module results in a "diffuse dome" of irradiance which can be integrated to determine how much diffuse light is hitting the module.  It is this diffuse irradiance which makes it so that if so that objects in shade are still visible.  An illustration below from [PVEducation](https://www.pveducation.org/pvcdrom/properties-of-sunlight/making-use-of-tmy-data).
 
-**Misconception 2:  As soon as a module is shaded, production goes to zero**
+![Diffuse Dome from PV Education]({{ site.url }}/assets/images/diffuse-dome.png#center)
+**Figure 3:** Diffuse Dome.
 
-This cannot be true, since some diffuse light still shines on the module.  In Desert Center, CA (a location with a very low fraction of diffuse light energy relative to direct light energy) the proportion of total irradiance due to diffuse light in the plane of the array on a tracker system is around 18%.
+The module power cannot go to zero since some diffuse light still shines on the module.  In Desert Center, CA (a location with a very low fraction of diffuse light energy relative to direct light energy) the proportion of total irradiance due to diffuse light in the plane of the array on a tracker system is around 18%.
 
 
 ### Electrical Engineering
@@ -83,7 +85,7 @@ Some rules to remember:
 - A voltage source can be thought of as a device which supplies a constant voltage at a range of different currents.
 
 ![Diode Curve]({{ site.url }}/assets/images/diode.png#center)
-**Figure 2:**  A general diode IV curve from LibreTexts [1]
+**Figure 4:**  A general diode IV curve from LibreTexts [1]
 
 What is an IV curve?  It is a continuous curve which represents all of the possible output states that the solar string can operate at.  The lower limit at Isc represents the output in the string if the circuit is completed with an "element" of zero resistance.  The upper limit of Voc occurs if the string is completed with an infinite resistance.  Interested readers can refer to more information in [5].  A maximum power point tracker (MPPT) modulates the resistance between these two limits to find the maximum power point. Why do we care about the IV curve?
 
@@ -94,10 +96,12 @@ Quoting Mark Mikofski [2]:
 So why would a negative voltage be applied to a cell? A cell that is shaded on its own does not enter reverse bias.  Neither does a cell which is in a string with similarly shaded cells.  Therefore in order for reverse bias to occur there must be a mismatch in the current and voltage characteristics in one of the cells of the string relative to the others.  Why does this mismatch cause a reverse bias?  Well, lets closely examine what we said earlier when we stated that the cells in a module can be "roughly" considered as a current source.
 
 ![highlighted IV curve]({{ site.url }}/assets/images/current-source.png)
+**Figure 5:** IV Curve.
 
 In the orange region above it is true, the solar cell is behaving like a current source, and is providing a steady current at a range of different possible voltages.  In the blue region the cell behaves more like a voltage source which holds a steady-ish voltage, but supplies a range of possible currents.  Here is an image comparing the output of a solar cell at different level of irradiance.
 
 ![different levels of irradiance]({{ site.url }}/assets/images/levels-of-irradiance.png)
+**Figure 6:** IV Curve at Different Irradiance Levels.
 
 A shaded solar cell cannot, on its own, provide the same level of current and voltage as its unshaded counter-parts.  As an example, lets say that in a series string of 10 1V cells that 9 are unshaded and 1 is shaded.  These cells are connected into a circuit over a resistive load with a non-zero, non-infinite resistance. The 9 unshaded cells are experiencing forward bias due to the light hitting them, creating a potential of 9V.  Kirchoff's voltage law (voltage in a loop must sum to zero) then forces a ~ -9V potential across the shaded cell and the resistive load.  This is the source of the reverse-bias.
 
@@ -118,24 +122,32 @@ Bypass diodes allow this current that would otherwise flow throught the shaded s
 Starting from the very beginning:  What does an unshaded system's IV curve look like?
 
 ![IV Curve Unshaded]({{ site.url }}/assets/images/iv-curve-unshaded.png#center)
-**Figure 2** Unshaded curve made my Mark Mikofski using PVMismatch.
+**Figure 7:** Unshaded curve of 20 string system made my Mark Mikofski using PVMismatch.
 
 What happens if we shade a single solar cell?  Since current is proportional to irradiance, current is decreased.
 
 Now what happens if we connect this shaded cell to another unshaded cell in series?  Then the string is limited by the Isc of the shaded solar cell and excess power is dissipated in the shaded cell.
 
-Then if we connect these cells into a module and then this module into a string?  Well here is where things get tricky.
+Then if we connect these cells into a module and then this module into a string?  And all strings are shaded in the exact same way?  Then every string gets limited to its most shaded cell and can only export the amount of energy incident upon the module by the diffuse irradiance.
 
-**Misconception 3:  Only current is affected in partial shading situations"
+But what happens if all strings are not shaded in the exact same way?  What happens if the shade occurs perpendicular to the portrait mode modules instead of parallel to their long axis? Believe it or not, here is the IV curve of the shaded system.
 
+![shaded pv system iv curve]({{ site.url }}/assets/images/shaded-pv-system.png)
+**Figure 8:** Shaded curve of 20 string system made my Mark Mikofski using PVMismatch.
 
+**Misconception 3:  Only current is affected in partial shading situations"**
 
+In [Mark's blog post](https://breakingbytes.github.io/pv-electric-mismatch-in-silicon-cell-pv-part-2.html#shade-parallel-to-strings) which I highly suggest you hop over and read, he shows that, yes the module IV curve gets distorted by the shading.  In the picture below, you can see that bypass diodes have indeed been activated, and the module can only export the 5A required by the string at ~13ish volts.
 
+![module shaded iv curve]({{ site.url }}/assets/images/module-iv-shaded.png)
 
-
-
+Why does the system curve look so different from the module curve?  Each of the unshaded modules in the 20 string system operates at a slightly higher voltage than their individual maximum power point to make up for the lost voltage of the shaded module.
 
 # Conclusion
+
+In real life, shade happens in many directions:  along the module axis, perpendicular to the module axis, diagonal to the module axis... you get the picture.  Two blog posts certainly won't cover everything you need to know about electrical mismatch due to shading, but I hope that this information is helpful to give performance modelers some more intuition about how shade affects their systems.
+
+From Mark:  "I wish I could say, that's all there is to it, but as I said in my first blog post, electrical mismatch in crystalline silicon is very counter-intuitive. That's why I created PVMismatch to begin with. I was tired of guessing and being wrong. So don't guess. Simulate with confidence, try PVMismatch, and let me know what you learn!"
 
 
 
