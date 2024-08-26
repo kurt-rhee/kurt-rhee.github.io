@@ -24,7 +24,7 @@ The first type occurs when modules with difference efficiencies are included in 
 
 ## Electrical mismatch due to shade
 
-The other type of mismatch loss that is calculated in a given performance modeling software occurs due to shading.  This type of shading is generally modeled in conjuction with the performance modeling software's shading model, and is not modeled as a flat loss.  (Read more about modeling shade in my post: {% post_url 2024-01-19-a-physical-shade-shape-calculation-algorithm %}.)
+The other type of mismatch loss that is calculated in a given performance modeling software occurs due to shading.  This type of shading is generally modeled in conjuction with the performance modeling software's shading model, and is not modeled as a flat loss.  (Read more in [my post about modeling shade]({% post_url 2024-01-19-a-physical-shade-shape-calculation-algorithm %}).)
 
 Shade modeling is complex because the electrical behavior of the PV string changes depending on the direction of the shade.  In this blog post we will explore row-to-row shade which partially covers all modules by the same amount, and in [Mark's joint post](https://breakingbytes.github.io/pv-electric-mismatch-in-silicon-cell-pv-part-2.html) he will use modeling to examine what happens when non-uniform shade from a tree, a turbine mast, or a transmission tower crosses over only a subset of cells or modules.
 
